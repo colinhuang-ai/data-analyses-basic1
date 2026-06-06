@@ -1,0 +1,55 @@
+---
+title: "Lý thuyết: Trực quan hóa báo cáo trên Looker Studio"
+session: 4
+type: "theory"
+order: 1
+---
+
+# Buổi 4: Xây Dựng Dashboard Tương Tác Trên Looker Studio
+
+Khi dữ liệu đã được thu thập và làm sạch, bước tiếp theo là trình bày nó cho các nhà quản lý hoặc khách hàng. Dù biểu đồ Google Sheets rất tiện lợi, nhưng để tạo các báo cáo tự động, tương tác cao và đẹp mắt, chúng ta cần dùng đến các công cụ **Business Intelligence (BI)** như **Looker Studio** (trước đây là Google Data Studio).
+
+---
+
+## 1. Giới thiệu về Looker Studio
+
+Looker Studio là công cụ xây dựng báo cáo động miễn phí của Google chạy hoàn toàn trên đám mây.
+- **Ưu điểm**:
+  - Kết nối trực tiếp với nhiều nguồn (Google Sheets, BigQuery, Google Analytics, SQL DBs).
+  - Khả năng tương tác kéo-thả trực quan, dễ chia sẻ như Google Docs.
+  - Tự động cập nhật số liệu khi nguồn dữ liệu gốc thay đổi.
+
+---
+
+## 2. Khái niệm cốt lõi trong BI: Dimension vs. Metric
+
+Để làm việc với bất kỳ công cụ BI nào (Looker Studio, Power BI, Tableau), bạn buộc phải phân biệt được hai khái niệm nền tảng này:
+
+### Dimension (Chiều dữ liệu / Chiều phân tích)
+Là các thuộc tính dùng để phân nhóm, phân loại hoặc định tính dữ liệu. Thường ở dạng chữ, ngày tháng, khu vực địa lý hoặc danh mục sản phẩm.
+- **Mục đích**: Trả lời cho câu hỏi *"Ai?"*, *"Cái gì?"*, *"Ở đâu?"*, *"Khi nào?"*.
+- **Ví dụ**: `Tỉnh thành`, `Họ tên nhân viên`, `Tháng bán hàng`, `Tên sản phẩm`.
+
+### Metric (Chỉ số đo lường / Số đo)
+Là các giá trị định lượng có thể tính toán toán học (cộng, trừ, nhân, chia, tính trung bình). Thường ở dạng số, phần trăm, tiền tệ.
+- **Mục đích**: Trả lời cho câu hỏi *"Bao nhiêu?"*, *"Tỷ lệ như thế nào?"*.
+- **Ví dụ**: `Tổng Doanh thu`, `Số lượng Đơn hàng`, `Tỷ lệ chuyển đổi`, `Lương trung bình`.
+
+*Mẹo ghi nhớ*: Bạn sẽ vẽ **Metric** trên biểu đồ dưới sự phân nhóm của các **Dimension** (Ví dụ: Vẽ *Tổng doanh số* [Metric] theo từng *Tỉnh thành* [Dimension]).
+
+---
+
+## 3. Các thành phần chính của một Dashboard Looker Studio
+
+Một báo cáo chuyên nghiệp thường cấu thành từ các nhóm đối tượng:
+
+1. **Scorecard (Thẻ chỉ số)**: Hiển thị một số đơn lẻ nổi bật (ví dụ: Tổng doanh thu, Số lượng khách hàng).
+2. **Filter Control (Bộ điều khiển lọc)**: Các bộ lọc tương tác (Dropdown list, Date range picker) cho phép người xem báo cáo tự bấm lọc dữ liệu theo nhu cầu.
+3. **Charts (Biểu đồ)**: Biểu đồ đường, cột, bảng biểu số liệu (Table) hoặc bản đồ địa lý (Geo Map) để hiển thị chi tiết số liệu.
+
+---
+
+> [!TIP]
+> Một dashboard tốt không cần phải nhồi nhét quá nhiều biểu đồ. Hãy tập trung vào việc bố trí bố cục rõ ràng từ trên xuống dưới (Scorecard trên cùng, sau đó là Bộ lọc, rồi đến các biểu đồ chi tiết).
+
+[👉 Chuyển sang phần Thực hành Lab Buổi 4](/lessons/session-4/lab)

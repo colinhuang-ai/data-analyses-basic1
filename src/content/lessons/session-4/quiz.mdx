@@ -1,0 +1,56 @@
+---
+title: "Trắc nghiệm: Visualize trên Looker Studio"
+session: 4
+type: "quiz"
+order: 3
+---
+
+import Quiz from '../../../components/Quiz.astro';
+
+# Bài tập trắc nghiệm: Looker Studio & Dashboard
+
+Dưới đây là 3 câu hỏi trắc nghiệm giúp bạn kiểm tra khả năng nắm bắt tư duy tổ chức báo cáo BI và thiết kế dashboard tương tác trên Looker Studio.
+
+<Quiz questions={[
+  {
+    question: "Trong các trường thông tin thu thập được từ một trang thương mại điện tử sau đây, trường nào được xếp vào loại Metric (Chỉ số đo lường)?",
+    options: [
+      "Mã số định danh đơn hàng (Order ID)",
+      "Ngày giờ giao hàng thành công (Delivery Timestamp)",
+      "Số tiền thanh toán thực tế của đơn hàng (Paid Amount)",
+      "Phương thức thanh toán khách hàng lựa chọn (COD, Thẻ tín dụng, Ví điện tử)"
+    ],
+    correctIndex: 2,
+    explanation: "Số tiền thanh toán thực tế là dữ liệu định lượng dạng số tiền tệ, có thể cộng dồn để tính tổng doanh thu hoặc tính trung bình cộng giá trị đơn hàng, do đó nó là một Metric. Các trường khác như Order ID (dùng định danh), Delivery Timestamp (thời gian), Payment Method (phân loại) đều đóng vai trò là Dimension."
+  },
+  {
+    question: "Bạn đã kết nối một file Google Sheets làm nguồn dữ liệu cho Looker Studio. Khi bạn cập nhật thêm 10 dòng giao dịch mới vào file Google Sheets này, bạn phải làm gì để số liệu mới xuất hiện trên Dashboard?",
+    options: [
+      "Không cần làm gì cả vì Looker Studio cập nhật hoàn toàn thời gian thực từng giây.",
+      "Bạn chỉ cần bấm nút 'Làm mới dữ liệu' (Refresh data) trên thanh công cụ của báo cáo, hoặc đợi hệ thống tự động đồng bộ định kỳ.",
+      "Bạn bắt buộc phải xóa kết nối cũ, tạo nguồn dữ liệu (Data Source) mới và vẽ lại toàn bộ các biểu đồ từ đầu.",
+      "Bạn phải export file Sheets sang dạng CSV rồi tải thủ công đè lên nguồn cũ."
+    ],
+    correctIndex: 1,
+    explanation: "Looker Studio duy trì kết nối trực tiếp đến Google Sheets qua API. Để cập nhật dữ liệu vừa thay đổi lập tức, bạn chỉ cần bấm nút Refresh data trên giao diện xem báo cáo, hoặc dữ liệu sẽ tự động đồng bộ sau khoảng 15 phút đến vài tiếng tùy cấu hình bộ nhớ đệm."
+  },
+  {
+    question: "Vai trò cốt lõi của phần cấu hình Dimension trong các biểu đồ Looker Studio là gì?",
+    options: [
+      "Để thực hiện các phép tính toán học tổng hợp như SUM, AVERAGE hoặc COUNT.",
+      "Dùng làm tiêu chí để phân nhóm, chia nhỏ dữ liệu và định nghĩa các trục nhãn (ví dụ: chia doanh thu theo từng tháng hoặc từng khu vực).",
+      "Dùng để điều chỉnh font chữ và màu sắc chủ đạo của biểu đồ.",
+      "Để thiết lập quyền truy cập cho những người dùng được phép xem báo cáo."
+    ],
+    correctIndex: 2,
+    explanation: "Dimension (Chiều dữ liệu) hoạt động giống như một chiếc 'kính lúp' giúp phân loại và cắt nhỏ các Metric. Nó xác định cách thức dữ liệu được nhóm lại và hiển thị trên các nhãn trục (ví dụ: trục X hiển thị tên các Tỉnh thành - Dimension, trục Y hiển thị Doanh thu - Metric)."
+  }
+]} />
+
+---
+
+> [!TIP]
+> Bạn đã làm chủ Looker Studio! Hãy chuyển sang Buổi học cuối cùng (Buổi 5) để học cách khai thác sâu hơn số liệu thông qua kỹ năng Phân tích Xu hướng (Trend Analysis).
+
+[👉 Chuyển sang bài học Buổi 5: Phân tích Trend](/lessons/session-5/theory)  
+[👉 Xem đáp án chi tiết và giải thích Quiz Buổi 4 tại đây](/solutions/session-4/quiz-solution)

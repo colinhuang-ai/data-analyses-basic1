@@ -1,0 +1,64 @@
+---
+title: "Lý thuyết: Phân tích Xu hướng (Trend Analysis)"
+session: 5
+type: "theory"
+order: 1
+---
+
+# Buổi 5: Phân Tích Xu Hướng (Trend Analysis) & Tư Duy Ra Quyết Định
+
+Phân tích dữ liệu không chỉ dừng lại ở việc báo cáo những gì *đã* xảy ra. Đỉnh cao của phân tích là tìm ra các quy luật biến động theo thời gian để **dự đoán tương lai** và **đưa ra các khuyến nghị hành động**. Đó chính là mục tiêu của Phân tích Xu hướng (Trend Analysis).
+
+---
+
+## 1. Khái niệm Phân tích chuỗi thời gian (Time-series)
+
+Chuỗi thời gian là tập hợp các quan trắc được ghi nhận theo thứ tự thời gian liên tiếp (ví dụ: doanh số hàng ngày, nhiệt độ hàng giờ, GDP hàng năm). Một chuỗi thời gian thường có 3 thành phần biến động chính:
+
+### a. Xu hướng (Trend)
+Là hướng chuyển động tổng quát của dữ liệu đi lên, đi xuống hoặc đi ngang trong một khoảng thời gian dài.
+- *Ví dụ*: Nhu cầu tìm kiếm từ khóa "Học AI" tăng dần đều từ năm 2023 đến 2026.
+
+### b. Tính mùa vụ (Seasonality)
+Là những biến động lặp đi lặp lại một cách đều đặn và có thể dự đoán được tại những thời điểm cố định trong năm (theo tuần, tháng, hoặc mùa).
+- *Ví dụ*: Doanh số bán áo khoác phao luôn tăng mạnh vào tháng 11, 12 và giảm về gần 0 vào các tháng mùa hè. Lượng truy cập website học tập thường giảm mạnh vào cuối tuần và tăng cao vào giữa tuần.
+
+### c. Biến động chu kỳ (Cyclic) và Nhiễu ngẫu nhiên (Noise/Irregular)
+- **Chu kỳ**: Biến động lên xuống không có chu kỳ cố định, thường kéo dài nhiều năm (ví dụ: chu kỳ bất động sản, chu kỳ khủng hoảng kinh tế).
+- **Nhiễu ngẫu nhiên**: Những biến động bất thường do các sự kiện không lường trước (ví dụ: bão lũ, dịch bệnh phá vỡ quy luật doanh thu thông thường).
+
+---
+
+## 2. Công cụ hỗ trợ: Đường xu hướng (Trendline)
+
+Đường xu hướng là một đường thẳng hoặc đường cong toán học được vẽ đè lên biểu đồ đường hoặc biểu đồ phân tán để làm nổi bật xu hướng chung của dữ liệu, bỏ qua các biến động nhiễu ngắn hạn.
+
+- **Đường xu hướng tuyến tính (Linear Trendline)**: Phù hợp cho các chuỗi dữ liệu tăng hoặc giảm đều theo tốc độ ổn định.
+- **Phương trình đường xu hướng ($y = ax + b$)**:
+  - Hệ số góc $a > 0$: Xu hướng tăng trưởng.
+  - Hệ số góc $a < 0$: Xu hướng suy giảm.
+
+---
+
+## 3. Các chỉ số đo lường tăng trưởng cốt lõi
+
+Để định lượng tốc độ phát triển của xu hướng, các nhà phân tích thường tính toán 2 chỉ số:
+
+### MoM (Month-over-Month) - Tăng trưởng so với tháng trước
+Dùng để đánh giá tốc độ phát triển ngắn hạn.
+
+`Tốc độ tăng trưởng MoM (%) = [(Doanh thu Tháng này - Doanh thu Tháng trước) / Doanh thu Tháng trước] x 100`
+
+### YoY (Year-over-Year) - Tăng trưởng so với cùng kỳ năm trước
+Dùng để đánh giá tốc độ phát triển dài hạn và **loại bỏ yếu tố mùa vụ**.
+
+`Tốc độ tăng trưởng YoY (%) = [(Doanh thu Tháng này năm nay - Doanh thu Tháng này năm ngoái) / Doanh thu Tháng này năm ngoái] x 100`
+
+*(Ví dụ: So sánh doanh thu tháng 12/2026 với tháng 12/2025 giúp đánh giá thực chất việc tăng trưởng có tốt hay không mà không sợ bị ảnh hưởng bởi đợt cao điểm mua sắm cuối năm).*
+
+---
+
+> [!TIP]
+> Khi phân tích xu hướng, luôn kiểm tra xem sự tăng trưởng đột biến có phải do mùa vụ hay không trước khi đưa ra kết luận rằng sản phẩm đang bán chạy hơn. Hãy sử dụng chỉ số YoY để có cái nhìn chính xác nhất!
+
+[👉 Chuyển sang phần Thực hành Lab Buổi 5](/lessons/session-5/lab)

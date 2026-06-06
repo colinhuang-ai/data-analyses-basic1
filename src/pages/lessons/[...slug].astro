@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import EbookLayout from '../../layouts/EbookLayout.astro';
+
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+  return lessons.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<EbookLayout title={entry.data.title} description={entry.data.description} currentSlug={`/lessons/${entry.id}`}>
+  <Content />
+</EbookLayout>

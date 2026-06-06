@@ -1,0 +1,61 @@
+---
+title: "Thực hành Lab: Làm sạch bảng dữ liệu bị lỗi trên Google Sheets"
+session: 3
+type: "lab"
+order: 2
+---
+
+# Bài tập thực hành: Làm sạch bảng dữ liệu lỗi trên Google Sheets
+
+Trong bài tập này, bạn sẽ nhận được một bảng dữ liệu thực tế bị dính nhiều lỗi nhập liệu phổ biến. Nhiệm vụ của bạn là sử dụng các hàm và công cụ của Google Sheets để dọn dẹp và trả về một bảng dữ liệu chuẩn hóa tuyệt đối.
+
+---
+
+## 1. Dữ liệu đầu vào (Messy Data)
+Hãy tạo một sheet mới trong Google Sheets và copy chính xác bảng dữ liệu "bẩn" dưới đây:
+
+| Mã NV | Họ và tên nhân viên | Tỉnh thành | Doanh thu | Hoa hồng (%) |
+| :--- | :--- | :--- | :--- | :--- |
+| NV01 | `  nguyễn văn nam ` | `hà nội` | 15000000 | 5% |
+| NV02 | `Trần thị bình` | `HÀ NỘI ` | 12000000 | 4% |
+| NV03 | ` LÊ MINH ANH  ` | `Đà Nẵng` | 8000000 | 0% |
+| NV01 | `  nguyễn văn nam ` | `hà nội` | 15000000 | 5% |
+| NV04 | `phạm hoàng hải` | ` đà nẵng` | 20000000 | 6% |
+| NV05 | `Nguyễn Thu Trang` | `Hồ Chí Minh` | | 5% |
+| NV06 | `Đặng văn Tiến` | `hồ chí minh` | 10000000 | 4% |
+
+---
+
+## 2. Các nhiệm vụ làm sạch dữ liệu
+
+Hãy tạo các cột mới bên cạnh và áp dụng công thức để thực hiện các yêu cầu sau:
+
+### Nhiệm vụ 1: Chuẩn hóa Họ và tên nhân viên
+Họ tên đang bị thừa khoảng trắng ở đầu/cuối và viết hoa viết thường lộn xộn.
+- Tại cột F (đặt tên là `Họ và tên Sạch`), hãy áp dụng kết hợp hàm `=PROPER(TRIM(B2))` để cắt khoảng trắng thừa và viết hoa chuẩn các chữ cái đầu.
+
+### Nhiệm vụ 2: Đồng nhất dữ liệu Tỉnh thành
+Tên tỉnh thành đang viết thường, viết hoa toàn bộ và có dấu cách thừa.
+- Tại cột G (đặt tên là `Tỉnh thành Sạch`), hãy áp dụng hàm `=PROPER(TRIM(C2))`. Sau khi làm sạch, hãy kiểm tra xem nhóm "Hà Nội" đã quy về một tên duy nhất chưa.
+
+### Nhiệm vụ 3: Xử lý dữ liệu Doanh thu bị trống
+Nhân viên `NV05` chưa được nhập doanh thu (ô trống).
+- Tại cột H (đặt tên là `Doanh thu Sạch`), hãy viết công thức để điền số `0` thay thế nếu ô doanh thu bị trống. Định dạng cột này sang kiểu số tiền tệ (VND).
+- *Gợi ý*: Sử dụng hàm kiểm tra ô trống hoặc `=IF(D7="", 0, D7)`.
+
+### Nhiệm vụ 4: Tính toán số tiền hoa hồng an toàn (Tránh lỗi công thức)
+Công thức tính Tiền hoa hồng = `Doanh thu * Hoa hồng (%)`. Tuy nhiên nếu cột Hoa hồng hoặc Doanh thu bị lỗi, công thức sẽ lỗi.
+- Thiết lập cột tính `Tiền hoa hồng` và bọc ngoài bằng hàm `=IFERROR(...)` để trả về số 0 nếu có bất kỳ lỗi toán học nào xảy ra.
+
+### Nhiệm vụ 5: Loại bỏ bản ghi trùng lặp
+Nhân viên `NV01` xuất hiện 2 lần trong bảng với dữ liệu giống hệt nhau (do trùng lặp bản ghi).
+- Bôi đen toàn bộ bảng dữ liệu đã làm sạch.
+- Chọn menu **Dữ liệu (Data)** -> **Dọn dẹp dữ liệu (Data cleanup)** -> **Xóa bản ghi trùng lặp (Remove duplicates)** để giữ lại một bản duy nhất.
+
+---
+
+> [!IMPORTANT]
+> Chụp lại màn hình bảng dữ liệu sau khi đã loại bỏ bản ghi trùng lặp và chứa các công thức chuẩn hóa sạch sẽ. Đối chiếu kết quả của bạn với Bài chữa ở phân mục đáp án để xem công thức viết đã tối ưu chưa nhé!
+
+[👉 Chuyển sang phần Trắc nghiệm Buổi 3](/lessons/session-3/quiz)  
+[👉 Xem bài chữa Lab Buổi 3 tại đây](/solutions/session-3/lab-solution)

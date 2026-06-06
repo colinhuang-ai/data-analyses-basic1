@@ -1,0 +1,56 @@
+---
+title: "Trắc nghiệm: Phân tích Trend"
+session: 5
+type: "quiz"
+order: 3
+---
+
+import Quiz from '../../../components/Quiz.astro';
+
+# Bài tập trắc nghiệm: Phân tích xu hướng & Tăng trưởng
+
+Dưới đây là 3 câu hỏi trắc nghiệm cuối cùng nhằm kiểm tra sự hiểu biết của bạn về phân tích chuỗi thời gian, tính toán tốc độ tăng trưởng và đọc vị các đường xu hướng.
+
+<Quiz questions={[
+  {
+    question: "Hiện tượng nào dưới đây đại diện cho biến động có Tính mùa vụ (Seasonality) trong chuỗi dữ liệu thời gian?",
+    options: [
+      "Lượng tiêu thụ kem và nước giải khát tăng vọt vào tháng 6, tháng 7 hàng năm khi thời tiết chuyển sang mùa hè.",
+      "Doanh số bán khẩu trang y tế và nước rửa tay tăng đột biến vào đầu năm 2020 do dịch Covid bùng phát.",
+      "Lượng khách truy cập website xem tin tức sụt giảm mạnh vào ngày cáp quang biển quốc tế gặp sự cố.",
+      "Doanh thu của doanh nghiệp giảm liên tục trong suốt 5 năm do sản phẩm bị lỗi thời."
+    ],
+    correctIndex: 0,
+    explanation: "Tính mùa vụ (Seasonality) là những biến động lặp đi lặp lại một cách đều đặn, tuần hoàn và có thể dự đoán trước theo một khoảng thời gian cố định trong năm (ở đây là tháng 6, 7 mùa hè hàng năm). Lỗi dịch bệnh, đứt cáp là nhiễu ngẫu nhiên, còn sụt giảm 5 năm là xu hướng dài hạn."
+  },
+  {
+    question: "Bạn muốn tính tỷ lệ tăng trưởng YoY (Year-over-Year) cho doanh thu của tháng 10 năm 2026. Công thức nào dưới đây là đúng?",
+    options: [
+      "`=(Doanh thu 10/2026 - Doanh thu 9/2026) / Doanh thu 9/2026`",
+      "`=(Doanh thu 10/2026 - Doanh thu 10/2025) / Doanh thu 10/2025`",
+      "`=(Doanh thu 10/2026 - Doanh thu 12/2025) / Doanh thu 12/2025`",
+      "`=(Doanh thu 10/2026 - Doanh thu Trung bình 2026) / Doanh thu Trung bình 2026`"
+    ],
+    correctIndex: 1,
+    explanation: "Tăng trưởng YoY (Cùng kỳ năm trước) được tính bằng cách lấy giá trị của kỳ này trừ đi giá trị của đúng kỳ đó năm trước (ở đây là tháng 10 năm trước - 10/2025), sau đó chia cho giá trị của kỳ đó năm trước. Công thức ở tùy chọn thứ nhất là công thức tính tăng trưởng MoM (so với tháng trước)."
+  },
+  {
+    question: "Khi bạn thêm một đường xu hướng tuyến tính (Linear Trendline) vào biểu đồ doanh số bán hàng và thấy đường này dốc xuống từ trái qua phải (hệ số góc âm), thông tin này nói lên điều gì?",
+    options: [
+      "Doanh thu của doanh nghiệp đang tăng trưởng tốt nhưng có biên độ biến động mạnh.",
+      "Dữ liệu doanh thu có tính chất mùa vụ cực kỳ cao và lặp lại liên tục.",
+      "Xu hướng tổng thể của hoạt động kinh doanh đang đi xuống, doanh thu có chiều hướng suy giảm theo thời gian.",
+      "Dữ liệu không có bất kỳ xu hướng hay quy luật nào rõ ràng."
+    ],
+    correctIndex: 2,
+    explanation: "Đường xu hướng tuyến tính dốc xuống thể hiện mối quan hệ nghịch biến giữa thời gian và doanh số: thời gian trôi đi thì doanh số giảm dần. Điều này phản ánh xu hướng suy giảm tổng thể của hoạt động kinh doanh dài hạn."
+  }
+]} />
+
+---
+
+> [!TIP]
+> Xin chúc mừng! Bạn đã hoàn thành toàn bộ chương trình học lý thuyết và trắc nghiệm của khóa học dữ liệu. Hãy tham khảo phần Bài chữa & Đáp án ở sidebar để hoàn tất các phần sửa đổi lab thực hành nhé!
+
+[👉 Quay lại trang chủ khóa học](/ )  
+[👉 Xem đáp án chi tiết và giải thích Quiz Buổi 5 tại đây](/solutions/session-5/quiz-solution)

@@ -1,0 +1,482 @@
+---
+interface Question {
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+}
+
+interface Props {
+  questions: Question[];
+}
+
+const { questions } = Astro.props;
+const uniqueId = `quiz-${Math.random().toString(36).substring(2, 9)}`;
+---
+
+<div class="quiz-wrapper glass-card fade-in" id={uniqueId}>
+  <div class="quiz-header">
+    <h3 class="quiz-title">📝 Kiểm Tra Kiến Thức</h3>
+    <span class="quiz-counter">Câu <span class="current-q">1</span>/<span class="total-q">{questions.length}</span></span>
+  </div>
+  
+  <div class="quiz-progress-bar">
+    <div class="quiz-progress-fill" style="width: 0%"></div>
+  </div>
+
+  <div class="questions-container">
+    {questions.map((q, qIndex) => (
+      <div class={`question-card ${qIndex === 0 ? 'active' : ''}`} data-index={qIndex} style={qIndex > 0 ? "display: none;" : ""}>
+        <h4 class="question-text">{q.question}</h4>
+        
+        <div class="options-list">
+          {q.options.map((opt, optIndex) => (
+            <button 
+              type="button" 
+              class="option-btn" 
+              data-opt-index={optIndex}
+              data-correct={optIndex === q.correctIndex}
+            >
+              <span class="option-letter">{['A', 'B', 'C', 'D'][optIndex]}.</span>
+              <span class="option-content">{opt}</span>
+            </button>
+          ))}
+        </div>
+
+        <div class="explanation-box" style="display: none;">
+          <div class="explanation-header">
+            <span class="result-status"></span>
+          </div>
+          <p class="explanation-text"><strong>Giải thích:</strong> {q.explanation}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="quiz-footer">
+    <button type="button" class="nav-btn prev-btn" disabled>Câu Trước</button>
+    <button type="button" class="nav-btn next-btn" style="display: none;">Câu Tiếp</button>
+    <button type="button" class="submit-btn" disabled>Kiểm Tra</button>
+  </div>
+
+  <div class="quiz-summary" style="display: none;">
+    <h4 class="summary-heading">Hoàn Thành Quiz! 🎉</h4>
+    <p class="summary-score">Điểm số của bạn: <strong class="score-val">0</strong>/{questions.length}</p>
+    <p class="summary-msg"></p>
+    <button type="button" class="restart-btn">Làm Lại Quiz</button>
+  </div>
+</div>
+
+<style>
+  .quiz-wrapper {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    position: relative;
+    border-radius: var(--radius-lg);
+  }
+
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+  }
+
+  .quiz-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #ffffff;
+  }
+
+  .quiz-counter {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .quiz-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-full);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .quiz-progress-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    transition: width 0.3s ease;
+  }
+
+  .question-card {
+    animation: fadeIn 0.3s ease;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .option-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+    transform: translateX(4px);
+  }
+
+  .option-btn.selected {
+    background: rgba(79, 172, 254, 0.15);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  }
+
+  .option-btn.correct-choice {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-color: var(--success) !important;
+    color: #ffffff !important;
+  }
+
+  .option-btn.wrong-choice {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: var(--error) !important;
+    color: #ffffff !important;
+  }
+
+  .option-letter {
+    font-weight: 700;
+    color: var(--accent-cyan);
+    font-family: var(--font-display);
+  }
+
+  .explanation-box {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .explanation-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .result-status {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .result-status.correct {
+    color: var(--success);
+  }
+
+  .result-status.wrong {
+    color: var(--error);
+  }
+
+  .explanation-text {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .nav-btn, .submit-btn, .restart-btn {
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+
+  .nav-btn:hover:not(:disabled) {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .submit-btn, .restart-btn {
+    background: var(--accent-gradient);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2);
+  }
+
+  .submit-btn:hover:not(:disabled), .restart-btn:hover {
+    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .submit-btn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  .quiz-summary {
+    text-align: center;
+    padding: 2rem 1rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .summary-heading {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .summary-score {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .summary-msg {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script is:inline define:vars={{ questions, uniqueId }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.getElementById(uniqueId);
+    if (!wrapper) return;
+
+    let currentIdx = 0;
+    let score = 0;
+    const userAnswers = Array(questions.length).fill(null);
+    const checkedQuestions = Array(questions.length).fill(false);
+
+    const qCards = wrapper.querySelectorAll('.question-card');
+    const currentQEl = wrapper.querySelector('.current-q');
+    const progressFill = wrapper.querySelector('.quiz-progress-fill');
+    const prevBtn = wrapper.querySelector('.prev-btn');
+    const nextBtn = wrapper.querySelector('.next-btn');
+    const submitBtn = wrapper.querySelector('.submit-btn');
+    const quizFooter = wrapper.querySelector('.quiz-footer');
+    const questionsContainer = wrapper.querySelector('.questions-container');
+    
+    const summaryBox = wrapper.querySelector('.quiz-summary');
+    const scoreValEl = wrapper.querySelector('.score-val');
+    const summaryMsgEl = wrapper.querySelector('.summary-msg');
+    const restartBtn = wrapper.querySelector('.restart-btn');
+
+    // Update UI
+    function updateProgress() {
+      const pct = ((currentIdx + 1) / questions.length) * 100;
+      progressFill.style.width = `${pct}%`;
+      currentQEl.textContent = currentIdx + 1;
+    }
+
+    function showQuestion(idx) {
+      qCards.forEach((card, i) => {
+        card.style.display = i === idx ? 'block' : 'none';
+        if (i === idx) card.classList.add('active');
+        else card.classList.remove('active');
+      });
+
+      prevBtn.disabled = idx === 0;
+
+      // Handle Submit / Next button toggle
+      if (checkedQuestions[idx]) {
+        submitBtn.style.display = 'none';
+        if (idx === questions.length - 1) {
+          nextBtn.style.display = 'block';
+          nextBtn.textContent = 'Hoàn Thành';
+        } else {
+          nextBtn.style.display = 'block';
+          nextBtn.textContent = 'Câu Tiếp';
+        }
+      } else {
+        submitBtn.style.display = 'block';
+        submitBtn.disabled = userAnswers[idx] === null;
+        nextBtn.style.display = 'none';
+      }
+
+      updateProgress();
+    }
+
+    // Set up option clicks
+    qCards.forEach((card, qIdx) => {
+      const options = card.querySelectorAll('.option-btn');
+      options.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (checkedQuestions[qIdx]) return; // locked once checked
+
+          options.forEach(o => o.classList.remove('selected'));
+          btn.classList.add('selected');
+          
+          userAnswers[qIdx] = parseInt(btn.getAttribute('data-opt-index'));
+          submitBtn.disabled = false;
+        });
+      });
+    });
+
+    // Submit handler
+    submitBtn.addEventListener('click', () => {
+      const activeCard = qCards[currentIdx];
+      const selectedBtn = activeCard.querySelector('.option-btn.selected');
+      if (!selectedBtn) return;
+
+      const answerIdx = userAnswers[currentIdx];
+      const isCorrect = selectedBtn.getAttribute('data-correct') === 'true';
+      
+      checkedQuestions[currentIdx] = true;
+      
+      // Add styling
+      if (isCorrect) {
+        selectedBtn.classList.remove('selected');
+        selectedBtn.classList.add('correct-choice');
+        score++;
+      } else {
+        selectedBtn.classList.remove('selected');
+        selectedBtn.classList.add('wrong-choice');
+        
+        // Highlight correct option
+        const correctBtn = activeCard.querySelector('.option-btn[data-correct="true"]');
+        if (correctBtn) correctBtn.classList.add('correct-choice');
+      }
+
+      // Lock buttons
+      activeCard.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+
+      // Reveal explanation
+      const expBox = activeCard.querySelector('.explanation-box');
+      const statusEl = activeCard.querySelector('.result-status');
+      if (isCorrect) {
+        statusEl.textContent = '✓ Chính xác!';
+        statusEl.className = 'result-status correct';
+      } else {
+        statusEl.textContent = '✗ Chưa chính xác!';
+        statusEl.className = 'result-status wrong';
+      }
+      expBox.style.display = 'block';
+
+      // Toggle buttons
+      submitBtn.style.display = 'none';
+      nextBtn.style.display = 'block';
+      if (currentIdx === questions.length - 1) {
+        nextBtn.textContent = 'Hoàn Thành';
+      } else {
+        nextBtn.textContent = 'Câu Tiếp';
+      }
+    });
+
+    // Nav handlers
+    prevBtn.addEventListener('click', () => {
+      if (currentIdx > 0) {
+        currentIdx--;
+        showQuestion(currentIdx);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIdx < questions.length - 1) {
+        currentIdx++;
+        showQuestion(currentIdx);
+      } else {
+        // Complete Quiz
+        questionsContainer.style.display = 'none';
+        quizFooter.style.display = 'none';
+        summaryBox.style.display = 'block';
+        scoreValEl.textContent = score;
+
+        const pct = (score / questions.length) * 100;
+        if (pct === 100) {
+          summaryMsgEl.textContent = 'Tuyệt vời! Bạn đã trả lời đúng tất cả các câu hỏi. Hãy tiếp tục phát huy ở các buổi tiếp theo!';
+        } else if (pct >= 60) {
+          summaryMsgEl.textContent = 'Khá tốt! Bạn đã hiểu được các khái niệm cốt lõi. Hãy xem lại các câu chưa đúng để củng cố kiến thức nhé.';
+        } else {
+          summaryMsgEl.textContent = 'Bạn cần ôn tập thêm một chút. Hãy đọc lại phần Lý thuyết và làm lại bài thực hành để nắm vững kiến thức.';
+        }
+      }
+    });
+
+    // Restart handler
+    restartBtn.addEventListener('click', () => {
+      currentIdx = 0;
+      score = 0;
+      userAnswers.fill(null);
+      checkedQuestions.fill(false);
+
+      // Reset options & explanations
+      qCards.forEach(card => {
+        card.querySelectorAll('.option-btn').forEach(btn => {
+          btn.disabled = false;
+          btn.classList.remove('selected', 'correct-choice', 'wrong-choice');
+        });
+        card.querySelector('.explanation-box').style.display = 'none';
+      });
+
+      questionsContainer.style.display = 'block';
+      quizFooter.style.display = 'flex';
+      summaryBox.style.display = 'none';
+
+      showQuestion(0);
+    });
+
+    // Init first question
+    showQuestion(0);
+  });
+</script>

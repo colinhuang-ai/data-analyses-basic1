@@ -1,0 +1,55 @@
+---
+title: "Thực hành Lab: Thiết kế Dashboard tương tác trên Looker Studio"
+session: 4
+type: "lab"
+order: 2
+---
+
+# Bài tập thực hành: Thiết kế Dashboard tương tác trên Looker Studio
+
+Trong bài tập này, bạn sẽ kết nối bảng dữ liệu nhân viên đã được làm sạch ở Buổi 3 lên Looker Studio và thiết lập một Dashboard báo cáo bán hàng tự động, cho phép bộ phận quản lý lọc dữ liệu theo tỉnh thành hoặc theo từng nhân sự.
+
+---
+
+## 1. Chuẩn bị nguồn dữ liệu
+Đảm bảo bạn có bảng dữ liệu sạch từ Buổi 3 trong Google Sheets. Bảng dữ liệu bao gồm các cột: `Mã NV`, `Họ và tên nhân viên`, `Tỉnh thành`, `Doanh thu`, `Tiền hoa hồng`.
+
+---
+
+## 2. Các bước thiết lập báo cáo trên Looker Studio
+
+### Bước 1: Tạo báo cáo mới và kết nối dữ liệu
+1. Truy cập vào [Looker Studio](https://lookerstudio.google.com). Đăng nhập bằng tài khoản Google của bạn.
+2. Nhấp vào nút **Báo cáo trống (Blank Report)** ở góc trên bên trái.
+3. Chọn nguồn kết nối là **Google Trang tính (Google Sheets)**.
+4. Chọn đúng file bảng tính chứa dữ liệu sạch ở Buổi 3 và click **Thêm (Add)**.
+
+### Bước 2: Tạo các thẻ chỉ số (Scorecard)
+Chúng ta cần hiển thị 2 số liệu tổng quan trên cùng của trang báo cáo:
+1. **Tổng doanh thu bán hàng**:
+   - Chọn menu **Thêm biểu đồ (Add a chart)** -> Chọn **Thẻ chỉ số (Scorecard)**. Đặt thẻ này lên góc trên cùng.
+   - Ở cột cấu hình bên phải, kéo trường `Doanh thu` vào phần **Metric** (Chọn kiểu tính toán là **Tổng / SUM**).
+2. **Tổng số lượng nhân sự**:
+   - Thêm một thẻ Scorecard thứ hai bên cạnh.
+   - Kéo trường `Mã NV` vào phần **Metric**. Đổi kiểu tính toán sang **Đếm số lượng duy nhất (COUNT DISTINCT)** để hiển thị tổng số nhân viên.
+
+### Bước 3: Tạo bảng chi tiết doanh thu nhân viên
+1. Chọn **Thêm biểu đồ (Add a chart)** -> Chọn **Bảng (Table)**.
+2. Cấu hình bảng dữ liệu ở phần thiết lập bên phải:
+   - **Dimension**: Kéo trường `Họ và tên nhân viên` và `Tỉnh thành`.
+   - **Metric**: Kéo trường `Doanh thu` và `Tiền hoa hồng`.
+3. Căn chỉnh kích thước cột bảng cho dễ đọc.
+
+### Bước 4: Tạo bộ lọc tỉnh thành tương tác
+1. Chọn menu **Thêm bộ điều khiển (Add a control)** ở thanh công cụ -> Chọn **Danh sách thả xuống (Drop-down list)**. Đặt bộ lọc ở trên cùng báo cáo, cạnh Scorecards.
+2. Kéo trường `Tỉnh thành` vào phần **Control field** (Dimension).
+3. Nhấp vào nút **Xem (View)** ở góc trên bên phải để chuyển sang chế độ sử dụng thử. Click vào bộ lọc tỉnh thành, chọn thử lọc riêng tỉnh "Hà Nội" hoặc "Hồ Chí Minh" và quan sát các Scorecards cùng Bảng doanh nghiệp tự động nhảy số liệu theo.
+
+---
+
+> [!IMPORTANT]
+> - Chuyển báo cáo sang chế độ **Chia sẻ (Share)** và copy đường link báo cáo (để ở chế độ công khai cho người có liên kết xem được) hoặc chụp hình ảnh Dashboard hoàn thiện ở chế độ "View".
+> - Nếu số liệu không tự thay đổi khi bấm bộ lọc, hãy kiểm tra lại xem các cấu phần biểu đồ đã kết nối chung một nguồn dữ liệu chưa (Tham khảo Bài chữa).
+
+[👉 Chuyển sang phần Trắc nghiệm Buổi 4](/lessons/session-4/quiz)  
+[👉 Xem bài chữa Lab Buổi 4 tại đây](/solutions/session-4/lab-solution)

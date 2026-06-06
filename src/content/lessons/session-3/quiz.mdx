@@ -1,0 +1,56 @@
+---
+title: "Trắc nghiệm: Làm sạch dữ liệu"
+session: 3
+type: "quiz"
+order: 3
+---
+
+import Quiz from '../../../components/Quiz.astro';
+
+# Bài tập trắc nghiệm: Làm sạch dữ liệu
+
+Hãy thử sức với 3 câu hỏi dưới đây để kiểm tra mức độ hiểu sâu của bạn về các nguyên lý và hàm làm sạch dữ liệu trong thực tế.
+
+<Quiz questions={[
+  {
+    question: "Giả sử ô tính A1 chứa chuỗi văn bản bị lỗi khoảng trắng: '  Lê   Thị   Lan  '. Kết quả trả về của công thức `=TRIM(A1)` sẽ là gì?",
+    options: [
+      "'Lê Thị Lan' (Loại bỏ khoảng trắng ở đầu, cuối và gộp các khoảng trắng ở giữa thành một dấu cách đơn)",
+      "'Lê   Thị   Lan' (Chỉ loại bỏ khoảng trắng ở đầu và cuối, giữ nguyên các khoảng trắng thừa ở giữa)",
+      "'LêThịLan' (Xóa bỏ hoàn toàn tất cả các ký tự khoảng trắng trong chuỗi)",
+      "Báo lỗi #VALUE! vì chuỗi chứa quá nhiều ký tự trắng không hợp lệ"
+    ],
+    correctIndex: 0,
+    explanation: "Hàm TRIM trong Google Sheets và Excel hoạt động thông minh: nó không chỉ cắt sạch các khoảng trắng ở đầu và cuối chuỗi mà còn thu gọn bất kỳ chuỗi khoảng trắng liên tục nào ở giữa các từ thành một khoảng trắng đơn duy nhất."
+  },
+  {
+    question: "Bạn muốn thực hiện phép tính `=A2/B2`. Để đề phòng trường hợp ô B2 bằng 0 hoặc trống dẫn đến lỗi chia cho không `#DIV/0!`, bạn muốn ô kết quả hiển thị văn bản 'Lỗi tính toán' thay vì mã lỗi hệ thống. Công thức nào là chính xác?",
+    options: [
+      "`=IFERROR(A2/B2, 'Lỗi tính toán')` (Bọc công thức trong hàm IFERROR)",
+      "`=IF(A2/B2 = ERROR, 'Lỗi tính toán')` (Sử dụng hàm IF so sánh với từ khóa ERROR)",
+      "`=TRY(A2/B2, 'Lỗi tính toán')` (Sử dụng cấu trúc TRY CATCH)",
+      "`=CLEAN(A2/B2, 'Lỗi tính toán')` (Sử dụng hàm CLEAN dữ liệu)"
+    ],
+    correctIndex: 0,
+    explanation: "Hàm IFERROR nhận vào hai tham số: biểu thức tính toán và giá trị thay thế. Nếu biểu thức tính toán xảy ra bất kỳ lỗi nào (#DIV/0!, #N/A, #VALUE!...), nó sẽ lập tức trả về giá trị thay thế được chỉ định."
+  },
+  {
+    question: "Khi bạn áp dụng công thức `=UNIQUE(A1:C10)` trên bảng dữ liệu gồm 3 cột và 10 hàng, hành vi của hàm này là gì?",
+    options: [
+      "Báo lỗi vì hàm UNIQUE chỉ có thể áp dụng trên một cột đơn lẻ.",
+      "Trả về một vùng bảng mới chỉ chứa các hàng duy nhất, loại bỏ hoàn toàn các hàng có sự trùng lặp trên cả 3 cột dữ liệu.",
+      "Chỉ trích xuất các giá trị duy nhất ở cột A, bỏ qua dữ liệu ở cột B và C.",
+      "Sắp xếp bảng dữ liệu theo thứ tự tăng dần mà không loại bỏ hàng trùng lặp."
+    ],
+    correctIndex: 1,
+    explanation: "Hàm UNIQUE có thể làm việc trên một vùng gồm nhiều cột. Nó sẽ xem xét toàn bộ các giá trị trên một hàng, nếu có hai hàng giống hệt nhau trên tất cả các cột được chọn, nó sẽ chỉ giữ lại hàng đầu tiên và loại bỏ hàng trùng lặp phía sau."
+  }
+]} />
+
+---
+
+> [!TIP]
+> Bạn đã biết cách làm sạch dữ liệu tuyệt vời. Bước tiếp theo, hãy chuyển sang Buổi 4 để bắt đầu trực quan hóa dữ liệu sạch này trên một công cụ BI chuyên nghiệp: Looker Studio!
+
+[👉 Chuyển sang bài học Buổi 4: Visualize trên Looker Studio](/lessons/session-4/theory)  
+[👉 Xem đáp án chi tiết và giải thích Quiz Buổi 3 tại đây](/solutions/session-3/quiz-solution)

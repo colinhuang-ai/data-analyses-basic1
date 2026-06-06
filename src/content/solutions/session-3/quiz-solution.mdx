@@ -1,0 +1,37 @@
+---
+title: "Đáp án Quiz 3: Giải thích trắc nghiệm Làm sạch dữ liệu"
+session: 3
+type: "quiz-solution"
+---
+
+# Giải thích đáp án trắc nghiệm Buổi 3: Làm sạch dữ liệu
+
+Dưới đây là đáp án chi tiết kèm giải thích khoa học cho các câu hỏi trắc nghiệm của Buổi 3.
+
+---
+
+## Câu 1: Cơ chế hoạt động của hàm TRIM
+- **Đáp án đúng**: *'Lê Thị Lan' (Loại bỏ khoảng trắng ở đầu, cuối và gộp các khoảng trắng ở giữa thành một dấu cách đơn)*.
+- **Phân tích chi tiết**:
+  - Nhiều người lầm tưởng `TRIM` chỉ cắt bỏ khoảng trắng ở rìa văn bản. Thực tế, trong Google Sheets và Excel, `TRIM` còn tìm kiếm các khoảng trống dài giữa các từ (ví dụ có 3-4 dấu cách liên tục) và thu gọn chúng lại thành 1 dấu cách duy nhất để văn bản trông tự nhiên.
+  - Để xóa bỏ toàn bộ khoảng trắng kể cả dấu cách đơn ở giữa các từ, bạn phải dùng hàm thay thế chữ: `=SUBSTITUTE(A1, " ", "")`.
+
+---
+
+## Câu 2: Bọc lỗi toán học để hiển thị thông điệp riêng
+- **Đáp án đúng**: `=IFERROR(A2/B2, "Lỗi tính toán")`
+- **Phân tích chi tiết**:
+  - Cú pháp chuẩn của hàm bọc lỗi là: `=IFERROR(value, value_if_error)`.
+  - Tham số thứ nhất `value` chính là phép tính có nguy cơ xảy ra lỗi (phép chia `A2/B2`).
+  - Tham số thứ hai là giá trị dạng chuỗi chữ `"Lỗi tính toán"` (phải bọc trong dấu ngoặc kép) sẽ được hiển thị ra ô tính nếu phép chia đó sinh ra các lỗi như `#DIV/0!` (khi B2 = 0) hoặc `#VALUE!` (khi B2 là chữ).
+
+---
+
+## Câu 3: Cách thức hàm UNIQUE xử lý vùng dữ liệu gồm nhiều cột
+- **Đáp án đúng**: *Trả về một vùng bảng mới chỉ chứa các hàng duy nhất, loại bỏ hoàn toàn các hàng có sự trùng lặp trên cả 3 cột dữ liệu*.
+- **Phân tích chi tiết**:
+  - Khi tham chiếu một mảng nhiều cột vào `UNIQUE` (ví dụ `A1:C10`), hàm sẽ đánh giá mức độ duy nhất theo **từng hàng (Records)**. 
+  - Một hàng chỉ bị coi là trùng lặp nếu mọi giá trị trên hàng đó (ở cả cột A, B, và C) giống hệt với một hàng đã xuất hiện phía trên. Nếu chỉ giống nhau ở cột A và B nhưng khác nhau ở cột C, hàng đó vẫn được giữ lại.
+  - Hàm `UNIQUE` không giới hạn số cột chọn và sẽ trả về một mảng động tự tràn ra các ô bên cạnh.
+
+[👉 Quay lại bài học chính Buổi 3](/lessons/session-3/theory)

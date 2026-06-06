@@ -1,0 +1,67 @@
+---
+title: "Lý thuyết: Cách thu thập dữ liệu (Data Collection)"
+session: 1
+type: "theory"
+order: 1
+---
+
+# Buổi 1: Cách Thu Thập Dữ Liệu (Data Collection)
+
+Chào mừng bạn đến với buổi học đầu tiên của khóa học dữ liệu! Thu thập dữ liệu là bước đi sơ khai nhưng vô cùng quan trọng. Nếu không thu thập đúng và đủ dữ liệu chất lượng, mọi phân tích hay biểu đồ trực quan phía sau đều vô giá trị. Đây chính là nguyên lý nền tảng: **"Garbage In, Garbage Out"** (Rác vào thì Rác ra).
+
+---
+
+## 1. Dữ liệu là gì? Phân loại Dữ liệu
+
+Dữ liệu (Data) là tập hợp các sự kiện, thông tin, số liệu được ghi nhận dưới nhiều dạng khác nhau. Trong thực tế, chúng ta chia dữ liệu thành hai loại chính:
+
+### Dữ liệu cấu trúc (Structured Data)
+Là dữ liệu được tổ chức theo một cấu trúc định sẵn, thường lưu trữ trong các bảng gồm hàng và cột.
+- **Ví dụ**: Bảng Excel, Google Sheets, Cơ sở dữ liệu SQL (Thông tin người dùng gồm Họ tên, Số điện thoại, Ngày sinh).
+- **Đặc điểm**: Dễ tìm kiếm, truy vấn và xử lý bằng các công cụ tính toán tự động.
+
+### Dữ liệu phi cấu trúc (Unstructured Data)
+Là dữ liệu không có cấu trúc cố định và không thể sắp xếp gọn gàng vào các cột bảng thông thường.
+- **Ví dụ**: Email, bài viết trên mạng xã hội, tệp PDF, tệp hình ảnh, video, âm thanh cuộc gọi tổng đài.
+- **Đặc điểm**: Chiếm phần lớn lượng dữ liệu toàn cầu hiện nay (khoảng 80%), đòi hỏi kỹ thuật phức tạp (như xử lý ngôn ngữ tự nhiên - NLP, computer vision) để phân tích.
+
+---
+
+## 2. Các nguồn thu thập dữ liệu phổ biến
+
+Để bắt đầu làm việc với dữ liệu, bạn cần biết dữ liệu đến từ đâu. Có 4 nguồn thu thập dữ liệu phổ biến nhất hiện nay:
+
+### a. Khảo sát & Biểu mẫu (Forms / Surveys)
+- **Phương thức**: Tạo các câu hỏi để người dùng tự nhập câu trả lời.
+- **Công cụ**: Google Forms, Microsoft Forms, Typeform.
+- **Ứng dụng**: Thu thập thông tin khách hàng, đánh giá chất lượng dịch vụ, khảo sát thị trường.
+
+### b. Giao diện lập trình ứng dụng (API - Application Programming Interface)
+- **Phương thức**: Gửi yêu cầu (Request) đến một server và nhận về dữ liệu phản hồi (Response), thường ở dạng JSON hoặc XML.
+- **Ứng dụng**: Lấy dữ liệu thời tiết, tỷ giá ngoại tệ, chỉ số chứng khoán hoặc thông tin bài đăng từ Facebook/Twitter về để phân tích.
+
+### c. Cào dữ liệu web (Web Scraping)
+- **Phương thức**: Sử dụng code/chương trình tự động quét qua cấu trúc HTML của trang web để trích xuất văn bản hoặc hình ảnh.
+- **Ứng dụng**: Thu thập giá sản phẩm từ các sàn thương mại điện tử (Shopee, Tiki) để so sánh giá.
+
+### d. Log Files (Dữ liệu lịch sử hệ thống)
+- **Phương thức**: Hệ thống tự động ghi nhận nhật ký hoạt động của máy chủ hoặc ứng dụng.
+- **Ứng dụng**: Ghi nhận thời gian tải trang, địa chỉ IP của người dùng truy cập web để phân tích hành vi và tối ưu hóa hệ thống.
+
+---
+
+## 3. Nguyên tắc đạo đức và tính hợp pháp khi thu thập dữ liệu
+
+Khi thu thập dữ liệu, đặc biệt là dữ liệu cá nhân (Personal Data), bạn phải tuân thủ nghiêm ngặt các nguyên tắc pháp lý và đạo đức:
+
+1. **Sự đồng thuận (Consent)**: Người dùng phải biết họ đang cung cấp thông tin gì và đồng ý cho bạn thu thập.
+2. **Mục đích rõ ràng**: Chỉ thu thập những dữ liệu cần thiết phục vụ cho công việc, tránh thu thập thừa thãi thông tin nhạy cảm (như mật khẩu, số căn cước công dân nếu không cần thiết).
+3. **Bảo mật dữ liệu**: Dữ liệu thu thập về phải được lưu trữ an toàn, tránh rò rỉ ra ngoài.
+4. **Quy định pháp lý**: Tuân thủ luật an ninh mạng và các tiêu chuẩn bảo vệ dữ liệu (như GDPR của Châu Âu hoặc Luật An ninh mạng Việt Nam).
+
+---
+
+> [!TIP]
+> Trong buổi học tiếp theo, chúng ta sẽ bắt đầu làm quen với cách đưa dữ liệu thu thập được vào Google Sheets - công cụ phân tích dữ liệu cơ bản nhưng mạnh mẽ bậc nhất thế giới!
+
+[👉 Chuyển sang phần Thực hành Lab Buổi 1](/lessons/session-1/lab)

@@ -1,0 +1,64 @@
+---
+title: "Thực hành Lab: Phân tích dữ liệu khảo sát trên Google Sheets"
+session: 2
+type: "lab"
+order: 2
+---
+
+# Bài tập thực hành: Phân tích dữ liệu khảo sát trên Google Sheets
+
+Trong bài tập này, bạn sẽ sử dụng bảng dữ liệu Google Sheets nhận được từ biểu mẫu khảo sát ở Buổi 1 (hoặc tạo một bảng dữ liệu giả lập có cấu trúc tương đương) để thực hiện tính toán số liệu thống kê và lập biểu đồ trực quan hóa cơ bản.
+
+---
+
+## 1. Chuẩn bị dữ liệu
+Nếu bạn chưa có dữ liệu khảo sát từ Buổi 1, hãy tạo một trang tính Google Sheets mới và nhập bảng dữ liệu mẫu sau (gồm 7 hàng):
+
+| Dấu thời gian | Họ và tên | Kinh nghiệm làm việc với dữ liệu | Mục tiêu sau khóa học |
+| :--- | :--- | :--- | :--- |
+| 06/06/2026 09:12:05 | Nguyễn Văn A | Chưa biết gì (Beginner) | Học thêm kỹ năng mới |
+| 06/06/2026 10:14:22 | Trần Thị B | Đã biết Excel cơ bản | Nâng cao hiệu suất công việc hiện tại |
+| 06/06/2026 10:45:11 | Lê Văn C | Đã biết Excel cơ bản | Thay đổi công việc/Chuyển ngành |
+| 06/06/2026 11:02:45 | Phạm Minh D | Đã từng làm việc với SQL/Python | Thay đổi công việc/Chuyển ngành |
+| 06/06/2026 12:20:10 | Vũ Thu E | Chưa biết gì (Beginner) | Học thêm kỹ năng mới |
+| 06/06/2026 14:05:32 | Hoàng Văn F | Chưa biết gì (Beginner) | Thay đổi công việc/Chuyển ngành |
+| 06/06/2026 15:30:19 | Ngô Thị G | Đã biết Excel cơ bản | Nâng cao hiệu suất công việc hiện tại |
+
+---
+
+## 2. Nhiệm vụ tính toán bằng công thức
+
+Hãy tạo một bảng báo cáo nhỏ ở góc bên phải hoặc sheet mới và sử dụng công thức để trả lời các câu hỏi sau:
+
+1. **Tổng số người tham gia khảo sát**: Sử dụng hàm `=COUNTA(B2:B8)` trên cột Họ và tên.
+2. **Số lượng học viên là "Chưa biết gì (Beginner)"**: Sử dụng hàm `=COUNTIF(C2:C8, "Chưa biết gì (Beginner)")`.
+3. **Số lượng học viên muốn "Thay đổi công việc/Chuyển ngành"**: Sử dụng hàm `=COUNTIF(D2:D8, "Thay đổi công việc/Chuyển ngành")`.
+
+---
+
+## 3. Nhiệm vụ phân tích bằng Pivot Table
+
+1. Bôi đen vùng dữ liệu `A1:D8`.
+2. Chọn menu **Chèn (Insert)** -> **Bảng xoay (Pivot table)**. Chọn chèn vào **Trang tính mới (New sheet)**.
+3. Cấu hình Pivot Table như sau:
+   - **Hàng (Rows)**: Thêm cột `Kinh nghiệm làm việc với dữ liệu`.
+   - **Giá trị (Values)**: Thêm cột `Họ và tên` với cách hiển thị là `COUNTA` (Đếm số lượng).
+4. Quan sát kết quả tóm tắt xem trình độ kinh nghiệm nào chiếm tỷ trọng lớn nhất.
+
+---
+
+## 4. Trực quan hóa dữ liệu bằng Biểu đồ
+
+1. Chọn bảng tóm tắt kết quả Pivot Table vừa tạo (hoặc bôi đen vùng dữ liệu tóm tắt kinh nghiệm).
+2. Chọn menu **Chèn (Insert)** -> **Biểu đồ (Chart)**.
+3. Ở khung bên phải, chọn loại biểu đồ là **Biểu đồ cột dọc (Column Chart)** để so sánh trực quan số học viên giữa các nhóm kinh nghiệm.
+4. Đặt tiêu đề biểu đồ là: `"Cơ cấu học viên theo trình độ đầu vào"`.
+5. Đổi màu cột sang màu xanh Neon Cyan hoặc xanh lá mượt mà để giao diện dashboard trông chuyên nghiệp hơn.
+
+---
+
+> [!IMPORTANT]
+> Hãy chụp lại màn hình kết quả gồm trang tính chứa các công thức (Phần 2) và trang chứa biểu đồ cột (Phần 4). Xem bài chữa nếu bạn gặp rắc rối với cấu trúc Pivot Table hoặc cách đặt công thức.
+
+[👉 Chuyển sang phần Trắc nghiệm Buổi 2](/lessons/session-2/quiz)  
+[👉 Xem bài chữa Lab Buổi 2 tại đây](/solutions/session-2/lab-solution)

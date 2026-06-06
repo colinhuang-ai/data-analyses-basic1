@@ -1,0 +1,358 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khóa Học Data 101: Từ Zero Đến Data Analyst</title>
+  <meta name="description" content="Khóa học phân tích dữ liệu 5 buổi miễn phí từ cơ bản đến thực hành: thu thập dữ liệu, làm sạch, trực quan hóa trên Google Sheets & Looker Studio." />
+</head>
+<body>
+  <div class="landing-container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="glow-orb" id="orb-1"></div>
+      <div class="glow-orb" id="orb-2"></div>
+      
+      <span class="hero-badge fade-in">🎓 KHÓA HỌC DÀNH CHO CƠ BẢN</span>
+      <h1 class="hero-title fade-in">TỪ ZERO ĐẾN<br/><span class="logo-accent">DATA ANALYST</span></h1>
+      <p class="hero-subtitle fade-in">
+        Ebook tự học phân tích dữ liệu qua 5 buổi học thực chiến. Mỗi buổi đi kèm lý thuyết trực quan, bài thực hành Lab thực tế và hệ thống kiểm tra trắc nghiệm tương tác ngay trên trình duyệt.
+      </p>
+      
+      <div class="cta-group fade-in">
+        <a href="/lessons/session-1/theory" class="cta-primary">Bắt Đầu Học Ngay 🚀</a>
+        <a href="#syllabus" class="cta-secondary">Xem Lộ Trình Chi Tiết</a>
+      </div>
+    </header>
+
+    <!-- Course Highlights -->
+    <section class="highlights fade-in">
+      <div class="highlight-card glass-card">
+        <div class="card-icon">⚡</div>
+        <h3>Học Tương Tác</h3>
+        <p>Kiểm tra kiến thức tức thì với các Quiz trắc nghiệm chọn đáp án, xem giải thích chi tiết ngay tại chỗ.</p>
+      </div>
+      <div class="highlight-card glass-card">
+        <div class="card-icon">🛠️</div>
+        <h3>Thực Hành Lab</h3>
+        <p>Ứng dụng trực tiếp kiến thức vào các bài lab thực hành trên Google Sheets và nền tảng đám mây Looker Studio.</p>
+      </div>
+      <div class="highlight-card glass-card">
+        <div class="card-icon">🔑</div>
+        <h3>Lời Giải Chi Tiết</h3>
+        <p>Truy cập thư viện bài chữa và giải thích đáp án trắc nghiệm độc lập giúp củng cố kiến thức sâu sắc.</p>
+      </div>
+    </section>
+
+    <!-- Syllabus Grid -->
+    <section id="syllabus" class="syllabus-section fade-in">
+      <h2 class="section-heading">Lộ trình 5 buổi học thực chiến</h2>
+      
+      <div class="syllabus-grid">
+        <!-- Session 1 -->
+        <div class="syllabus-card glass-card">
+          <div class="session-num">BUỔI 1</div>
+          <h3>Cách Collect Data (Thu thập dữ liệu)</h3>
+          <p>Tìm hiểu các khái niệm dữ liệu cấu trúc/phi cấu trúc, phương pháp gọi API bằng JS Fetch, cào dữ liệu và thiết lập Google Form thu thập.</p>
+          <ul class="syllabus-links">
+            <li><a href="/lessons/session-1/theory">📖 Lý thuyết</a></li>
+            <li><a href="/lessons/session-1/lab">💻 Bài thực hành Lab</a></li>
+            <li><a href="/lessons/session-1/quiz">📝 Làm bài Quiz</a></li>
+          </ul>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="syllabus-card glass-card">
+          <div class="session-num">BUỔI 2</div>
+          <h3>Google Sheets & Trực Quan Hóa</h3>
+          <p>Làm quen với bảng dữ liệu Google Sheets, áp dụng các hàm logic nâng cao, dựng Pivot Table tóm tắt dữ liệu và vẽ biểu đồ cột/đường cơ bản.</p>
+          <ul class="syllabus-links">
+            <li><a href="/lessons/session-2/theory">📖 Lý thuyết</a></li>
+            <li><a href="/lessons/session-2/lab">💻 Bài thực hành Lab</a></li>
+            <li><a href="/lessons/session-2/quiz">📝 Làm bài Quiz</a></li>
+          </ul>
+        </div>
+
+        <!-- Session 3 -->
+        <div class="syllabus-card glass-card">
+          <div class="session-num">BUỔI 3</div>
+          <h3>Làm Sạch Dữ Liệu (Data Cleaning)</h3>
+          <p>Khắc phục lỗi khoảng trắng thừa, chuẩn hóa viết hoa viết thường, xử lý dữ liệu khuyết thiếu bằng hàm logic và lọc bản ghi trùng lặp.</p>
+          <ul class="syllabus-links">
+            <li><a href="/lessons/session-3/theory">📖 Lý thuyết</a></li>
+            <li><a href="/lessons/session-3/lab">💻 Bài thực hành Lab</a></li>
+            <li><a href="/lessons/session-3/quiz">📝 Làm bài Quiz</a></li>
+          </ul>
+        </div>
+
+        <!-- Session 4 -->
+        <div class="syllabus-card glass-card">
+          <div class="session-num">BUỔI 4</div>
+          <h3>Visualize trên Looker Studio</h3>
+          <p>Phân biệt Dimension vs Metric. Kết nối Google Sheets lên đám mây Looker Studio để vẽ biểu đồ Scorecard, Bảng số liệu và tạo bộ lọc tương tác.</p>
+          <ul class="syllabus-links">
+            <li><a href="/lessons/session-4/theory">📖 Lý thuyết</a></li>
+            <li><a href="/lessons/session-4/lab">💻 Bài thực hành Lab</a></li>
+            <li><a href="/lessons/session-4/quiz">📝 Làm bài Quiz</a></li>
+          </ul>
+        </div>
+
+        <!-- Session 5 -->
+        <div class="syllabus-card glass-card">
+          <div class="session-num">BUỔI 5</div>
+          <h3>Phân Tích Trend (Xu hướng)</h3>
+          <p>Hiểu về tính mùa vụ và xu hướng dài hạn. Thực hành tính toán tỷ số tăng trưởng MoM/YoY và vẽ đường xu hướng tuyến tính (Trendline) dự đoán.</p>
+          <ul class="syllabus-links">
+            <li><a href="/lessons/session-5/theory">📖 Lý thuyết</a></li>
+            <li><a href="/lessons/session-5/lab">💻 Bài thực hành Lab</a></li>
+            <li><a href="/lessons/session-5/quiz">📝 Làm bài Quiz</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <p>© 2026 Khóa Học Data 101 - Phát triển trên nền tảng Astro & MDX</p>
+    </footer>
+  </div>
+</body>
+</html>
+
+<style>
+  .landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Orbs of Light (Background) */
+  .glow-orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: var(--radius-full);
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  #orb-1 {
+    top: 5%;
+    left: 10%;
+    background: #00f2fe;
+  }
+
+  #orb-2 {
+    top: 25%;
+    right: 10%;
+    background: #4facfe;
+  }
+
+  /* Hero styles */
+  .hero {
+    text-align: center;
+    padding: 7rem 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-badge {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    background: rgba(0, 242, 254, 0.08);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin: 0 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .hero-subtitle {
+    max-width: 700px;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .cta-group {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .cta-primary, .cta-secondary {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+
+  .cta-primary {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  }
+
+  .cta-primary:hover {
+    box-shadow: 0 4px 25px rgba(0, 242, 254, 0.5);
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+
+  .cta-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  /* Highlights Section */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+  }
+
+  .highlight-card {
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* Syllabus styles */
+  .syllabus-section {
+    margin-bottom: 6rem;
+  }
+
+  .section-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
+
+  .syllabus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .syllabus-card {
+    padding: 2.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+  }
+
+  .session-num {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    margin-bottom: 0.5rem;
+  }
+
+  .syllabus-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .syllabus-card p {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .syllabus-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+  }
+
+  .syllabus-links li a {
+    font-size: 0.925rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: block;
+    transition: all 0.2s;
+  }
+
+  .syllabus-links li a:hover {
+    color: var(--accent-cyan);
+    padding-left: 4px;
+  }
+
+  /* Footer */
+  .landing-footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+</style>

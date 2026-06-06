@@ -1,0 +1,37 @@
+---
+title: "Đáp án Quiz 2: Giải thích trắc nghiệm Google Sheets"
+session: 2
+type: "quiz-solution"
+---
+
+# Giải thích đáp án trắc nghiệm Buổi 2: Google Sheets & Trực quan hóa
+
+Dưới đây là phần phân tích chi tiết đáp án của bài trắc nghiệm thuộc Buổi 2.
+
+---
+
+## Câu 1: Sự khác biệt giữa XLOOKUP và VLOOKUP
+- **Đáp án đúng**: *VLOOKUP bắt buộc cột chứa giá trị tra cứu phải nằm ở bên trái cột kết quả cần lấy, trong khi XLOOKUP có thể tra cứu theo bất kỳ hướng nào*.
+- **Phân tích chi tiết**:
+  - Với `VLOOKUP`, nếu cột mã khách hàng nằm ở cột C, và bạn muốn lấy thông tin tên ở cột B (bên trái cột C), bạn không thể gọi trực tiếp hàm này mà phải dùng kết hợp cặp hàm phức tạp là `INDEX` & `MATCH` hoặc đảo cột dữ liệu.
+  - `XLOOKUP` giải phóng hoàn toàn ràng buộc này bằng cách tách biệt vùng tra cứu (`lookup_range`) và vùng trả kết quả (`result_range`). Bạn có thể tìm từ phải qua trái, từ trái qua phải cực kỳ dễ dàng.
+
+---
+
+## Câu 2: Thiết lập Pivot Table để tính doanh số theo khu vực
+- **Đáp án đúng**: *Kéo cột 'Khu vực' vào mục Rows, kéo cột 'Doanh số' vào mục Values và chọn hàm SUM*.
+- **Phân tích chi tiết**:
+  - Trục dòng (**Rows**) có nhiệm vụ hiển thị danh mục phân loại theo chiều dọc. Đưa 'Khu vực' vào đây sẽ hiển thị 3 dòng: Bắc, Trung, Nam.
+  - Trục giá trị (**Values**) là nơi thực hiện các phép tính toán. Do đề bài yêu cầu tính **Tổng doanh số**, chúng ta kéo trường 'Doanh số' vào đây và chọn hàm gộp là `SUM`.
+  - Nếu kéo ngược lại hoặc đưa trường doanh số vào Rows, bạn sẽ nhận được bảng phân tích vô nghĩa.
+
+---
+
+## Câu 3: Chọn biểu đồ biểu diễn xu hướng doanh số qua 3 năm
+- **Đáp án đúng**: *Biểu đồ đường (Line Chart)*.
+- **Phân tích chi tiết**:
+  - Mục tiêu cốt lõi của đề bài là theo dõi **xu hướng biến động theo thời gian** (36 tháng liên tục).
+  - Biểu đồ đường vẽ các điểm dữ liệu và nối chúng lại bằng các đoạn thẳng, giúp mắt con người phát hiện ngay lập tức độ dốc đi lên hay đi xuống của xu hướng, đồng thời dễ dàng nhận diện các đợt sụt giảm có tính lặp lại (mùa vụ).
+  - Biểu đồ tròn chỉ dùng để so sánh tỷ lệ phần trăm tĩnh của một thời điểm. Biểu đồ phân tán thường dùng để tìm tương quan giữa 2 biến liên tục chứ không dùng để vẽ dòng thời gian chuỗi đơn.
+
+[👉 Quay lại bài học chính Buổi 2](/lessons/session-2/theory)

@@ -1,0 +1,234 @@
+---
+import EbookLayout from '../layouts/EbookLayout.astro';
+---
+
+<EbookLayout title="Tài Liệu Đọc Thêm" description="Tổng hợp các tài liệu đọc thêm chất lượng cao cho cả 5 buổi học dữ liệu." currentSlug="/references">
+  <div class="references-page">
+    <header class="ref-header">
+      <h1 class="ref-title">📄 Tài Liệu Đọc Thêm & Tham Khảo</h1>
+      <p class="ref-subtitle">Dưới đây là tổng hợp các tài liệu chính thức từ hãng công nghệ, bài viết chuyên sâu của các chuyên gia và cẩm nang hướng dẫn thực hành nâng cao để giúp bạn đào sâu kiến thức sau mỗi buổi học.</p>
+    </header>
+
+    <div class="sections-list">
+      <!-- Session 1 -->
+      <section id="session-1" class="ref-section glass-card">
+        <span class="ref-badge">Buổi 1</span>
+        <h2>Cách Collect Data (Thu thập dữ liệu)</h2>
+        <p class="section-intro">Tìm hiểu thêm về giao tiếp mạng, định dạng dữ liệu API và phương pháp khảo sát chuyên nghiệp.</p>
+        <ul class="ref-links">
+          <li>
+            <a href="https://developer.mozilla.org/vi/docs/Web/HTTP/Methods" target="_blank" rel="noreferrer">
+              🌍 HTTP Request Methods (MDN Web Docs)
+            </a>
+            <span class="link-desc">Tài liệu chi tiết của Mozilla về các phương thức HTTP (GET, POST, PUT, DELETE) dùng trong lập trình API.</span>
+          </li>
+          <li>
+            <a href="https://www.freecodecamp.org/news/what-is-an-api-in-english-please/" target="_blank" rel="noreferrer">
+              🔌 API là gì? Giải thích bằng ngôn ngữ đời thường (freeCodeCamp)
+            </a>
+            <span class="link-desc">Bài viết nổi tiếng giúp lập trình viên và nhà phân tích dữ liệu mới bắt đầu hiểu bản chất của API.</span>
+          </li>
+          <li>
+            <a href="https://support.google.com/a/users/answer/9302965" target="_blank" rel="noreferrer">
+              📋 Hướng dẫn thiết kế Google Forms chuyên nghiệp (Google Support)
+            </a>
+            <span class="link-desc">Cẩm nang từ Google chỉ cách thiết lập biểu mẫu, phân loại câu hỏi và xuất dữ liệu sang Google Sheets hiệu quả.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Session 2 -->
+      <section id="session-2" class="ref-section glass-card">
+        <span class="ref-badge">Buổi 2</span>
+        <h2>Sử dụng Google Sheets và Visualize</h2>
+        <p class="section-intro">Nâng cao kỹ năng xử lý bảng tính với các hàm tra cứu hiện đại và nguyên lý trực quan hóa trực quan.</p>
+        <ul class="ref-links">
+          <li>
+            <a href="https://www.benlcollins.com/spreadsheets/xlookup-google-sheets/" target="_blank" rel="noreferrer">
+              📊 Làm chủ XLOOKUP trong Google Sheets (Ben Collins)
+            </a>
+            <span class="link-desc">Bài hướng dẫn toàn tập của chuyên gia Google Sheets Ben Collins về cách dùng XLOOKUP thay thế cho VLOOKUP.</span>
+          </li>
+          <li>
+            <a href="https://support.google.com/docs/answer/75728?hl=vi" target="_blank" rel="noreferrer">
+              🔄 Cách tạo và sử dụng Pivot Table (Google Docs Help)
+            </a>
+            <span class="link-desc">Tài liệu trợ giúp chính thức của Google hướng dẫn kéo thả Pivot Table để tóm tắt dữ liệu lớn.</span>
+          </li>
+          <li>
+            <a href="https://clauswilke.com/dataviz/" target="_blank" rel="noreferrer">
+              🎨 Giáo trình Nguyên lý Trực quan hóa Dữ liệu (Claus O. Wilke)
+            </a>
+            <span class="link-desc">Một cuốn sách trực tuyến miễn phí tuyệt vời giảng dạy tư duy thiết kế biểu đồ, phối màu và lựa chọn loại biểu đồ phù hợp.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Session 3 -->
+      <section id="session-3" class="ref-section glass-card">
+        <span class="ref-badge">Buổi 3</span>
+        <h2>Làm sạch dữ liệu (Data Cleaning)</h2>
+        <p class="section-intro">Phương pháp xử lý dữ liệu bị lỗi, các hàm Regex và tư duy làm sạch hệ thống.</p>
+        <ul class="ref-links">
+          <li>
+            <a href="https://hbr.org/2016/09/bad-data-costs-the-u-s-3-trillion-a-year" target="_blank" rel="noreferrer">
+              ⚠️ Tác hại khổng lồ của Dữ liệu bẩn đối với Doanh nghiệp (Harvard Business Review)
+            </a>
+            <span class="link-desc">Bài phân tích về thiệt hại kinh tế của dữ liệu kém chất lượng và tầm quan trọng của hoạt động dọn dẹp dữ liệu.</span>
+          </li>
+          <li>
+            <a href="https://www.benlcollins.com/spreadsheets/data-cleaning-formulas/" target="_blank" rel="noreferrer">
+              🧹 10 Công thức làm sạch dữ liệu nhanh chóng (Ben Collins)
+            </a>
+            <span class="link-desc">Tập hợp các hàm thực chiến như TRIM, CLEAN, IFERROR, UPPER/LOWER và các phím tắt làm sạch dữ liệu bảng tính.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Session 4 -->
+      <section id="session-4" class="ref-section glass-card">
+        <span class="ref-badge">Buổi 4</span>
+        <h2>Trực quan hóa trên Looker Studio</h2>
+        <p class="section-intro">Cách xây dựng Dashboard chuyên nghiệp, quản trị Dimension/Metric và tối ưu hóa bộ lọc.</p>
+        <ul class="ref-links">
+          <li>
+            <a href="https://support.google.com/looker-studio/answer/6268232?hl=vi" target="_blank" rel="noreferrer">
+              💡 Phân biệt Dimension vs Metric trong BI (Google Help)
+            </a>
+            <span class="link-desc">Tài liệu định nghĩa nền tảng từ Google để hiểu cách Looker Studio chia nhóm và tính toán dữ liệu của bạn.</span>
+          </li>
+          <li>
+            <a href="https://support.google.com/looker-studio/answer/6290534?hl=vi" target="_blank" rel="noreferrer">
+              🔗 Hướng dẫn Blend Dữ liệu (Data Blending) trong Looker Studio
+            </a>
+            <span class="link-desc">Hướng dẫn nâng cao giúp bạn gộp nhiều bảng dữ liệu (ví dụ bảng Doanh thu và bảng Thông tin nhân viên) thành một biểu đồ chung.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Session 5 -->
+      <section id="session-5" class="ref-section glass-card">
+        <span class="ref-badge">Buổi 5</span>
+        <h2>Phân tích Trend (Time-series & Forecasting)</h2>
+        <p class="section-intro">Học về toán phân tích chuỗi thời gian, tính mùa vụ YoY/MoM và ứng dụng đường xu hướng toán học.</p>
+        <ul class="ref-links">
+          <li>
+            <a href="https://towardsdatascience.com/almost-everything-you-need-to-know-about-time-series-86024189323c" target="_blank" rel="noreferrer">
+              📈 Tất tần tật về phân tích Chuỗi thời gian (Towards Data Science)
+            </a>
+            <span class="link-desc">Bài viết chuyên sâu phân tích chi tiết 4 thành phần chuỗi thời gian: Trend, Seasonality, Cyclic và Noise.</span>
+          </li>
+          <li>
+            <a href="https://www.investopedia.com/terms/y/year-over-year-yoy.asp" target="_blank" rel="noreferrer">
+              📊 Khái niệm YoY (Year-over-Year) và cách ứng dụng trong Tài chính (Investopedia)
+            </a>
+            <span class="link-desc">Giải thích tại sao YoY là thước đo vàng giúp đánh giá doanh thu chính xác bằng cách triệt tiêu yếu tố mùa vụ.</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</EbookLayout>
+
+<style>
+  .references-page {
+    padding: 1rem 0;
+  }
+
+  .ref-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .ref-title {
+    margin-top: 0;
+    font-size: 2.25rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .ref-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .sections-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .ref-section {
+    padding: 2.25rem;
+    position: relative;
+    border-radius: var(--radius-lg);
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .ref-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--success);
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+  }
+
+  .ref-section h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .section-intro {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .ref-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .ref-links li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .ref-links li a {
+    font-size: 1.05rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    width: fit-content;
+  }
+
+  .ref-links li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+  }
+
+  .link-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+</style>

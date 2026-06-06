@@ -1,0 +1,47 @@
+---
+title: "Bài chữa Lab 4: Hướng dẫn kết nối & gán kiểu dữ liệu Looker Studio"
+session: 4
+type: "lab-solution"
+---
+
+# Bài chữa Lab Buổi 4: Thiết kế Dashboard tương tác trên Looker Studio
+
+Dưới đây là các lưu ý kỹ thuật quan trọng và hướng dẫn sửa lỗi khi thiết kế báo cáo trực quan hóa trên Looker Studio.
+
+---
+
+## 1. Kiểm tra và Chuẩn hóa kiểu dữ liệu (Data Schema Check)
+
+Một lỗi rất phổ biến khi kết nối Google Sheets với Looker Studio là **sai kiểu dữ liệu**, khiến bạn không thể tính toán hoặc bộ lọc hoạt động sai cách.
+Sau khi thêm nguồn dữ liệu, bạn cần kiểm tra bảng thuộc tính các trường thông tin:
+
+1. **Mã NV**: Phải hiển thị icon text màu xám `[ABC]`. Nếu hiển thị là số `[123]`, bạn cần click vào biểu tượng và chọn lại kiểu dữ liệu thành **Text (Văn bản)**.
+2. **Doanh thu** và **Tiền hoa hồng**: Phải hiển thị icon số `[123]`. 
+   - *Mẹo tối ưu*: Hãy click vào kiểu dữ liệu của hai cột này, chọn **Numeric** -> **Currency** -> **VND - Viet Nam Dong** để số tiền tự động có thêm ký hiệu `₫` ngăn cách hàng nghìn chuyên nghiệp.
+3. **Tỉnh thành**: Phải hiển thị icon `[ABC]`. (Bạn cũng có thể chuyển đổi thành kiểu dữ liệu địa lý **Geo** -> **City** để vẽ lên biểu đồ bản đồ nhiệt).
+
+---
+
+## 2. Giải quyết lỗi bộ lọc không hoạt động (Cross-filtering Error)
+
+Nếu bạn bấm chọn lọc Tỉnh thành là "Hà Nội" nhưng các thẻ Scorecard hoặc Bảng nhân viên không thay đổi số liệu, nguyên nhân thường là:
+
+### Lỗi 1: Khác nguồn dữ liệu (Data Source)
+Đảm bảo bộ lọc thả xuống (Dropdown Control) và tất cả biểu đồ trên trang đều kết nối tới **cùng một file Google Sheets**. 
+- *Cách sửa*: Kích vào từng biểu đồ và đối chiếu trường **Data Source** ở khung cấu hình bên phải.
+
+### Lỗi 2: Bộ lọc bị giới hạn phạm vi (Group Control)
+Nếu bạn nhóm (Group) bộ lọc với một biểu đồ cụ thể, bộ lọc đó sẽ mất tác dụng với các biểu đồ nằm ngoài nhóm.
+- *Cách sửa*: Hãy chọn bộ lọc và chọn **Rã nhóm (Ungroup)** hoặc đảm bảo không gom nhóm tùy tiện để bộ lọc có thể tác động lên toàn trang báo cáo.
+
+---
+
+## 3. Bản chất hoạt động của bộ lọc trong BI
+Khi học viên bấm chọn "Hà Nội" ở bộ lọc:
+- Looker Studio sẽ gửi một truy vấn ẩn (Query filter) lọc toàn bộ các hàng dữ liệu gốc có cột `Tỉnh thành = "Hà Nội"`.
+- Sau đó, nó thực hiện tính toán lại (Re-aggregate) các Metric trên vùng dữ liệu đã lọc đó:
+  - Thẻ `SUM(Doanh thu)` chỉ cộng các hàng thuộc Hà Nội.
+  - Thẻ `COUNT DISTINCT(Mã NV)` chỉ đếm số lượng nhân viên duy nhất thuộc Hà Nội.
+  - Bảng chi tiết nhân viên tự động ẩn đi các nhân viên thuộc Đà Nẵng và Hồ Chí Minh.
+
+[👉 Quay lại bài học chính Buổi 4](/lessons/session-4/theory)

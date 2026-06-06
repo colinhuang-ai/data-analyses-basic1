@@ -1,0 +1,78 @@
+---
+title: "Thực hành Lab: Thu thập dữ liệu khảo sát & gọi API"
+session: 1
+type: "lab"
+order: 2
+---
+
+# Bài tập thực hành: Thu thập dữ liệu khảo sát & gọi API
+
+Mục tiêu của bài thực hành này là giúp bạn làm quen trực tiếp với hai phương thức thu thập dữ liệu phổ biến: thiết kế biểu mẫu khảo sát thông tin và viết mã Script ngắn để kéo dữ liệu từ một API công khai.
+
+---
+
+## Phần 1: Tạo Google Form thu thập dữ liệu người dùng
+
+### Bước 1: Khởi tạo biểu mẫu
+1. Truy cập [Google Forms](https://forms.google.com) và tạo một biểu mẫu trống mới.
+2. Đặt tiêu đề cho biểu mẫu là: `"Khảo sát nhu cầu học Data Analyst"`.
+
+### Bước 2: Thiết kế hệ thống câu hỏi
+Hãy tạo 3 câu hỏi sau đây với các định dạng khác nhau:
+1. **Họ và tên**: Định dạng câu trả lời ngắn (Short answer). Đánh dấu **Bắt buộc (Required)**.
+2. **Kinh nghiệm làm việc với dữ liệu của bạn**: Định dạng trắc nghiệm (Multiple choice), bao gồm các tùy chọn:
+   - Chưa biết gì (Beginner)
+   - Đã biết Excel cơ bản
+   - Đã từng làm việc với SQL/Python
+3. **Mục tiêu của bạn sau khóa học**: Định dạng hộp kiểm (Checkboxes), cho phép chọn nhiều:
+   - Thay đổi công việc/Chuyển ngành
+   - Nâng cao hiệu suất công việc hiện tại
+   - Học thêm kỹ năng mới
+
+### Bước 3: Xem trước và xuất dữ liệu sang Google Sheets
+1. Nhấp vào biểu tượng **Con mắt (Preview)** ở góc trên bên phải để điền thử biểu mẫu. Hãy điền 2-3 câu trả lời mẫu.
+2. Chuyển sang tab **Câu trả lời (Responses)**.
+3. Nhấp vào biểu tượng màu xanh lá cây **"Liên kết với Trang tính" (Link to Sheets)** để tạo một bảng Google Sheets mới chứa toàn bộ dữ liệu phản hồi của khảo sát này.
+
+---
+
+## Phần 2: Thu thập dữ liệu thông qua Public API bằng JavaScript
+
+Chúng ta sẽ gọi một API chạy thử miễn phí của nền tảng JSONPlaceholder để lấy danh sách người dùng mẫu.
+
+### Bước 1: Chuẩn bị mã lệnh
+Hãy sao chép đoạn mã JavaScript dưới đây và chạy thử trong trình duyệt của bạn (Nhấp chuột phải chọn **Inspect** -> Chọn tab **Console**):
+
+```javascript
+// Gửi yêu cầu GET đến API lấy thông tin người dùng
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Mạng gặp sự cố khi gọi API');
+    }
+    return response.json(); // Chuyển đổi phản hồi sang dạng JSON
+  })
+  .then(users => {
+    console.log("=== ĐÃ THU THẬP ĐƯỢC " + users.length + " NGƯỜI DÙNG ===");
+    // In ra màn hình console thông tin rút gọn: Tên, Email và Công ty
+    users.forEach(user => {
+      console.log(`- Tên: ${user.name} | Email: ${user.email} | Công ty: ${user.company.name}`);
+    });
+  })
+  .catch(error => {
+    console.error('Lỗi khi thu thập dữ liệu:', error);
+  });
+```
+
+### Yêu cầu bài thực hành:
+1. Hãy copy đoạn mã trên và chạy thành công trong tab Console của trình duyệt.
+2. Chụp lại màn hình kết quả in ra danh sách 10 người dùng.
+
+---
+
+> [!IMPORTANT]
+> - Link bài nộp thực hành của bạn nên chứa liên kết biểu mẫu Google Sheet (Phần 1) và hình ảnh kết quả chạy Console (Phần 2).
+> - Nếu gặp lỗi hoặc muốn so sánh cách tối ưu hóa code gọi API, hãy tham khảo Bài chữa.
+
+[👉 Chuyển sang phần Trắc nghiệm Buổi 1](/lessons/session-1/quiz)  
+[👉 Xem bài chữa Lab Buổi 1 tại đây](/solutions/session-1/lab-solution)

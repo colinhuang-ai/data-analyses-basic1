@@ -1,0 +1,36 @@
+---
+title: "Đáp án Quiz 4: Giải thích trắc nghiệm Looker Studio"
+session: 4
+type: "quiz-solution"
+---
+
+# Giải thích đáp án trắc nghiệm Buổi 4: Visualize trên Looker Studio
+
+Dưới đây là phần phân tích chi tiết đáp án của bài trắc nghiệm thuộc Buổi 4.
+
+---
+
+## Câu 1: Xác định trường dữ liệu là Metric (Chỉ số đo lường)
+- **Đáp án đúng**: *Số tiền thanh toán thực tế của đơn hàng (Paid Amount)*.
+- **Phân tích chi tiết**:
+  - Số tiền thanh toán đại diện cho giá trị định lượng có ý nghĩa toán học đầy đủ (chúng ta có thể tính tổng doanh thu bằng cách cộng dồn, tính giá trị đơn hàng trung bình bằng cách chia trung bình cộng). Vì thế nó là **Metric**.
+  - Các trường khác như *Mã số đơn hàng* (Order ID) tuy cấu thành từ số nhưng chỉ có ý nghĩa định danh (độc nhất), không ai đi tính tổng hay trung bình cộng các ID đơn hàng. Vì vậy nó đóng vai trò là **Dimension**. Tương tự, *Ngày giờ giao hàng* và *Phương thức thanh toán* là các thuộc tính định tính dùng để phân loại nên cũng là **Dimension**.
+
+---
+
+## Câu 2: Đồng bộ hóa dữ liệu từ Google Sheets sang Looker Studio
+- **Đáp án đúng**: *Bạn chỉ cần bấm nút 'Làm mới dữ liệu' (Refresh data) trên thanh công cụ của báo cáo, hoặc đợi hệ thống tự động đồng bộ định kỳ*.
+- **Phân tích chi tiết**:
+  - Looker Studio kết nối trực tiếp đến bảng tính Google Sheets của bạn. Hệ thống lưu trữ dữ liệu tạm thời (Cache) để tăng tốc độ tải trang báo cáo.
+  - Khi dữ liệu nguồn thay đổi, bộ nhớ đệm có thể chưa cập nhật ngay lập tức. Để ép hệ thống đồng bộ ngay, người thiết kế hoặc người xem chỉ cần nhấp vào biểu tượng **Ba dấu chấm** ở góc trên bên phải -> Chọn **Làm mới dữ liệu (Refresh data)**.
+  - Bạn tuyệt đối không cần vẽ lại biểu đồ hay xóa nguồn đi tạo lại, điều này rất mất thời gian và không cần thiết.
+
+---
+
+## Câu 3: Vai trò cốt lõi của Dimension trong BI
+- **Đáp án đúng**: *Dùng làm tiêu chí để phân nhóm, chia nhỏ dữ liệu và định nghĩa các trục nhãn (ví dụ: chia doanh thu theo từng tháng hoặc từng khu vực)*.
+- **Phân tích chi tiết**:
+  - Dữ liệu thô ban đầu chỉ là một đống lộn xộn. Nếu chỉ có Metric (ví dụ: Doanh thu = 1 tỷ), con số đó rất mơ hồ.
+  - Sự xuất hiện của **Dimension** giúp cắt nhỏ con số 1 tỷ đó thành các góc nhìn cụ thể: Doanh thu theo *Tỉnh thành* (Hà Nội mang về 500 triệu, HCM mang về 500 triệu), hay Doanh thu theo *Tháng* (tháng 1, tháng 2...). Nó định nghĩa trục tọa độ hoặc các nhãn phân nhóm của biểu đồ.
+
+[👉 Quay lại bài học chính Buổi 4](/lessons/session-4/theory)

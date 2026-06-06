@@ -1,0 +1,52 @@
+---
+title: "Bài chữa Lab 5: Hướng dẫn giải tính toán MoM/YoY & phân tích xu hướng"
+session: 5
+type: "lab-solution"
+---
+
+# Bài chữa Lab Buổi 5: Tính toán tăng trưởng MoM/YoY & Vẽ Trendline
+
+Dưới đây là đáp án chi tiết và phân tích kinh doanh dựa trên bảng dữ liệu chuỗi thời gian của Buổi 5.
+
+---
+
+## 1. Đáp án công thức tính toán tăng trưởng
+
+Hãy xem bảng công thức tương ứng trong Google Sheets (giả định dữ liệu năm 2025 bắt đầu từ cột B, năm 2026 bắt đầu từ cột C):
+
+### Công thức tính MoM 2026 (Cột D)
+- **Hàng đầu tiên (Tháng 1 - Ô D2)**: **Để trống** (hoặc điền `"N/A"`).
+  - *Giải thích*: Vì chúng ta không có số liệu của Tháng 12/2025 để tính toán so sánh cho Tháng 1/2026.
+- **Tháng 2 (Ô D3)**: `=(C3-C2)/C2`
+  - *Kết quả*: `(130,000,000 - 145,000,000) / 145,000,000` = `-10.34%` (Suy giảm).
+- **Tháng 3 (Ô D4)**: `=(C4-C3)/C3`
+  - *Kết quả*: `(160,000,000 - 130,000,000) / 130,000,000` = `+23.08%` (Tăng trưởng mạnh).
+- Tiếp tục kéo công thức xuống các hàng dưới.
+
+### Công thức tính YoY (%) (Cột E)
+- **Tháng 1 (Ô E2)**: `=(C2-B2)/B2`
+  - *Kết quả*: `(145,000,000 - 120,000,000) / 120,000,000` = `+20.83%`.
+- **Tháng 2 (Ô E3)**: `=(C3-B3)/B3`
+  - *Kết quả*: `(130,000,000 - 110,000,000) / 110,000,000` = `+18.18%`.
+- **Tháng 12 (Ô E13)**: `=(C13-B13)/B13`
+  - *Kết quả*: `(290,000,000 - 240,000,000) / 240,000,000` = `+20.83%`.
+- Kéo công thức cho toàn bộ 12 tháng.
+
+---
+
+## 2. Nhận định kinh doanh từ biểu đồ và đường xu hướng (Trendline)
+
+### Phân tích Trend (Xu hướng dài hạn):
+- Đường xu hướng tuyến tính (Linear Trendline) trên biểu đồ doanh thu năm 2026 có **độ dốc hướng lên rất rõ ràng từ trái qua phải**.
+- **Kết luận**: Hoạt động kinh doanh chung của doanh nghiệp đang tăng trưởng tốt và ổn định về mặt dài hạn qua từng tháng.
+
+### Phân tích Seasonality (Tính mùa vụ):
+- Quan sát kỹ đường doanh số thực tế, ta thấy:
+  - Doanh thu **giảm mạnh vào tháng 2 và tháng 7, 8**.
+  - Doanh thu **tăng vọt đạt đỉnh vào tháng 12**.
+  - Quy luật này lặp lại y hệt ở cả năm 2025 và 2026.
+- **Giải thích & Đề xuất**:
+  - Tháng 12 là đợt cao điểm mua sắm cuối năm (Lễ Tết, Giáng Sinh, xả hàng). Doanh nghiệp cần chuẩn bị nhiều lượng hàng tồn kho và ngân sách marketing lớn cho thời điểm này.
+  - Tháng 2 có kỳ nghỉ Tết dài ngày, các hoạt động giao thương tạm ngừng nên doanh số sụt giảm. Đây là quy luật tự nhiên, doanh nghiệp không nên quá lo lắng mà cần tối ưu chi phí vận hành trong tháng này.
+
+[👉 Quay lại bài học chính Buổi 5](/lessons/session-5/theory)

@@ -1,0 +1,56 @@
+---
+title: "Trắc nghiệm: Sử dụng Google Sheets và Visualize"
+session: 2
+type: "quiz"
+order: 3
+---
+
+import Quiz from '../../../components/Quiz.astro';
+
+# Bài tập trắc nghiệm: Google Sheets & Trực quan hóa
+
+Hãy hoàn thành bài trắc nghiệm dưới đây để củng cố lại các kỹ năng sử dụng hàm tính toán, lập bảng Pivot Table và các nguyên tắc thiết kế biểu đồ trên Google Sheets.
+
+<Quiz questions={[
+  {
+    question: "Câu nào dưới đây mô tả chính xác nhất sự khác biệt và ưu thế của hàm XLOOKUP so với hàm VLOOKUP truyền thống?",
+    options: [
+      "VLOOKUP bắt buộc cột chứa giá trị tra cứu phải nằm ở bên trái cột kết quả cần lấy, trong khi XLOOKUP có thể tra cứu theo bất kỳ hướng nào (trái, phải, trên, dưới).",
+      "XLOOKUP hoạt động nhanh hơn nhưng đòi hỏi bảng dữ liệu phải được sắp xếp trước theo thứ tự bảng chữ cái.",
+      "VLOOKUP tự động trả về giá trị lỗi nếu không tìm thấy, còn XLOOKUP luôn trả về giá trị gần đúng nhất một cách tự động.",
+      "XLOOKUP chỉ chạy được trên các phiên bản Google Sheets dành cho doanh nghiệp có trả phí."
+    ],
+    correctIndex: 0,
+    explanation: "VLOOKUP bị giới hạn chỉ có thể tìm từ cột đầu tiên của vùng chọn sang bên phải. XLOOKUP giải quyết hoàn toàn hạn chế này bằng cách sử dụng hai mảng độc lập (lookup_range và result_range), cho phép tra cứu linh hoạt sang trái hoặc sang phải."
+  },
+  {
+    question: "Khi thiết lập Pivot Table để tính tổng doanh số bán hàng theo từng Khu vực (Bắc, Trung, Nam), bạn cần kéo thả các cột dữ liệu vào các ô cấu hình như thế nào?",
+    options: [
+      "Kéo cột 'Khu vực' vào mục Columns, kéo cột 'Doanh số' vào mục Rows.",
+      "Kéo cột 'Khu vực' vào mục Rows, kéo cột 'Doanh số' vào mục Columns.",
+      "Kéo cột 'Khu vực' vào mục Rows, kéo cột 'Doanh số' vào mục Values và chọn hàm SUM.",
+      "Kéo cột 'Khu vực' vào mục Values (COUNTA), kéo cột 'Doanh số' vào mục Rows."
+    ],
+    correctIndex: 2,
+    explanation: "Đưa 'Khu vực' vào Rows sẽ tạo ra các dòng nhóm tương ứng (Bắc, Trung, Nam). Đưa 'Doanh số' vào Values và cấu hình hàm tính tổng (SUM) sẽ hiển thị giá trị tổng cộng cho mỗi khu vực đó."
+  },
+  {
+    question: "Bạn muốn biểu diễn sự thay đổi của tổng doanh thu công ty qua các tháng trong vòng 3 năm gần đây để phát hiện xu hướng tăng trưởng. Loại biểu đồ nào là thích hợp nhất?",
+    options: [
+      "Biểu đồ tròn (Pie Chart)",
+      "Biểu đồ đường (Line Chart)",
+      "Biểu đồ phân tán (Scatter Plot)",
+      "Biểu đồ thanh ngang chồng (Stacked Bar Chart)"
+    ],
+    correctIndex: 1,
+    explanation: "Biểu đồ đường là công cụ tối ưu nhất để trực quan hóa dữ liệu chuỗi thời gian (time-series data), giúp người xem dễ dàng quan sát độ dốc, hướng đi và tốc độ thay đổi của xu hướng theo thời gian."
+  }
+]} />
+
+---
+
+> [!TIP]
+> Bạn đã nắm vững các kỹ năng cơ bản trên Google Sheets. Hãy sẵn sàng cho Buổi 3 để học cách dọn dẹp và làm sạch dữ liệu bị nhiễu trước khi tiến hành các phân tích nâng cao hơn!
+
+[👉 Chuyển sang bài học Buổi 3: Làm sạch Data](/lessons/session-3/theory)  
+[👉 Xem đáp án chi tiết và giải thích Quiz Buổi 2 tại đây](/solutions/session-2/quiz-solution)

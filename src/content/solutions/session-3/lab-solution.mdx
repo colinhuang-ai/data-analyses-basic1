@@ -1,0 +1,48 @@
+---
+title: "Bài chữa Lab 3: Giải pháp làm sạch dữ liệu chi tiết"
+session: 3
+type: "lab-solution"
+---
+
+# Bài chữa Lab Buổi 3: Làm sạch dữ liệu trên Google Sheets
+
+Dưới đây là các công thức chuẩn xác và các bước thực hành tối ưu giúp bạn làm sạch bảng dữ liệu bị lỗi ở Buổi 3.
+
+---
+
+## 1. Công thức giải quyết các nhiệm vụ làm sạch
+
+### Cột Họ và tên Sạch (Cột F)
+- **Công thức áp dụng tại ô F2**: `=PROPER(TRIM(B2))`
+- **Giải thích**:
+  - Hàm `TRIM(B2)` cắt bỏ toàn bộ khoảng trắng thừa ở đầu và cuối tên `"  nguyễn văn nam "` thành `"nguyễn văn nam"`.
+  - Hàm `PROPER(...)` bọc ngoài sẽ biến đổi chữ cái đầu tiên của mỗi từ thành viết hoa: `"Nguyễn Văn Nam"`.
+
+### Cột Tỉnh thành Sạch (Cột G)
+- **Công thức áp dụng tại ô G2**: `=PROPER(TRIM(C2))`
+- **Giải thích**: 
+  - Hàm này xử lý các lỗi viết hoa toàn bộ `"HÀ NỘI "` hoặc viết thường `"hà nội"` và dấu cách thừa thành dạng viết chuẩn duy nhất là `"Hà Nội"`.
+  - Sau khi làm sạch, hai dòng chứa dữ liệu tỉnh thành Hà Nội (của nhân viên NV01 và NV02) sẽ hoàn toàn giống nhau, giúp Pivot Table sau này không bị tách nhóm.
+
+### Cột Doanh thu Sạch (Cột H)
+- **Công thức áp dụng tại ô H2**: `=IF(D2="", 0, D2)` (hoặc `=IF(ISBLANK(D2), 0, D2)`)
+- **Giải thích**: 
+  - Hàm `IF` kiểm tra xem ô dữ liệu gốc `D2` có rỗng không. Nếu rỗng (`""`), nó sẽ điền số `0`. Nếu không rỗng, nó sẽ giữ nguyên giá trị doanh thu cũ.
+  - Phép toán này giúp tránh việc ô trống bị hiểu sai hoặc gây lỗi cho các phép tính tổng lũy kế phía sau.
+
+### Cột Tiền hoa hồng An toàn (Cột I)
+- **Công thức áp dụng tại ô I2**: `=IFERROR(H2 * E2, 0)`
+- **Giải thích**:
+  - Hàm nhân doanh thu sạch (`H2`) với tỷ lệ phần trăm hoa hồng (`E2`).
+  - Hàm `IFERROR(...)` bọc ngoài đề phòng trường hợp cột Hoa hồng chứa chữ viết lỗi (ví dụ chữ `"Không có"` thay vì `0%`) khiến phép nhân bị lỗi `#VALUE!`. Khi có lỗi, nó sẽ tự động hiển thị số `0`.
+
+---
+
+## 2. Các bước loại bỏ trùng lặp (Remove Duplicates)
+1. Bôi đen bảng dữ liệu sạch vừa được tạo ra.
+2. Trên thanh công cụ, chọn **Dữ liệu (Data)** -> **Dọn dẹp dữ liệu (Data cleanup)** -> **Xóa bản ghi trùng lặp (Remove duplicates)**.
+3. Trong hộp thoại hiện ra, hãy tích chọn **Dữ liệu có dòng tiêu đề (Data has header row)**.
+4. Tích chọn cột **Mã NV** để hệ thống tự động tìm và xóa các hàng có mã nhân viên trùng lặp.
+5. Click **Xóa bản ghi trùng lặp**. Hệ thống sẽ thông báo: *"Đã tìm thấy và xóa 1 hàng trùng lặp. Còn lại 6 hàng duy nhất"*.
+
+[👉 Quay lại bài học chính Buổi 3](/lessons/session-3/theory)

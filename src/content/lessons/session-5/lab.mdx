@@ -1,0 +1,67 @@
+---
+title: "Thực hành Lab: Phân tích tăng trưởng MoM/YoY & vẽ Trendline"
+session: 5
+type: "lab"
+order: 2
+---
+
+# Bài tập thực hành: Tính toán tăng trưởng MoM/YoY & Vẽ Trendline
+
+Trong bài thực hành cuối cùng này, bạn sẽ làm việc với bảng dữ liệu doanh thu của một doanh nghiệp trong 2 năm liên tiếp (2025 và 2026) để tính toán tỷ lệ tăng trưởng và lập biểu đồ phân tích xu hướng dài hạn.
+
+---
+
+## 1. Dữ liệu đầu vào (Time-series Data)
+Hãy tạo một sheet mới trên Google Sheets và nhập bảng số liệu doanh thu sau:
+
+| Tháng | Doanh thu năm 2025 (VNĐ) | Doanh thu năm 2026 (VNĐ) |
+| :--- | :--- | :--- |
+| Tháng 1 | 120,000,000 | 145,000,000 |
+| Tháng 2 | 110,000,000 | 130,000,000 |
+| Tháng 3 | 130,000,000 | 160,000,000 |
+| Tháng 4 | 140,000,000 | 175,000,000 |
+| Tháng 5 | 155,000,000 | 190,000,000 |
+| Tháng 6 | 170,000,000 | 210,000,000 |
+| Tháng 7 | 160,000,000 | 185,000,000 |
+| Tháng 8 | 150,000,000 | 170,000,000 |
+| Tháng 9 | 165,000,000 | 200,000,000 |
+| Tháng 10 | 180,000,000 | 225,000,000 |
+| Tháng 11 | 200,000,000 | 250,000,000 |
+| Tháng 12 | 240,000,000 | 290,000,000 |
+
+---
+
+## 2. Các nhiệm vụ thực hành phân tích
+
+### Nhiệm vụ 1: Tính toán tăng trưởng MoM cho năm 2026
+Hãy tính xem doanh thu từng tháng trong năm 2026 tăng trưởng bao nhiêu % so với tháng liền trước.
+- Tạo cột D (đặt tên là `Tăng trưởng MoM 2026 (%)`).
+- Tại ô D3 (Tháng 2), áp dụng công thức: `=(C3 - C2) / C2` và chuyển định dạng ô sang **Phần trăm (%)**.
+- Kéo công thức xuống đến Tháng 12.
+
+### Nhiệm vụ 2: Tính toán tăng trưởng YoY (Cùng kỳ năm trước)
+Hãy so sánh doanh thu của từng tháng năm 2026 với đúng tháng đó của năm 2025.
+- Tạo cột E (đặt tên là `Tăng trưởng YoY (%)`).
+- Tại ô E2 (Tháng 1), áp dụng công thức: `=(C2 - B2) / B2` và chuyển định dạng ô sang **Phần trăm (%)**.
+- Kéo công thức xuống đến Tháng 12.
+
+### Nhiệm vụ 3: Vẽ biểu đồ xu hướng Doanh thu 2026
+1. Bôi đen cột `Tháng` (A1:A13) và cột `Doanh thu năm 2026` (C1:C13). (Nhấn giữ phím Ctrl/Cmd để chọn hai cột không liền nhau).
+2. Chọn menu **Chèn (Insert)** -> **Biểu đồ (Chart)**. Chọn loại **Biểu đồ đường (Line Chart)**.
+3. Đặt tiêu đề biểu đồ là: `"Biến động Doanh thu năm 2026"`.
+
+### Nhiệm vụ 4: Thêm đường xu hướng (Trendline)
+1. Kích đúp vào biểu đồ vừa vẽ để mở bảng thiết lập thuộc tính ở bên phải.
+2. Chọn tab **Tùy chỉnh (Customize)** -> Chọn mục **Chuỗi (Series)**.
+3. Tích chọn vào ô **Đường xu hướng (Trendline)**.
+4. Đổi màu đường xu hướng sang màu neon nổi bật (ví dụ: Màu đỏ tươi hoặc vàng hồng) để phân biệt rõ với đường doanh thu thực tế.
+5. Quan sát độ dốc đường xu hướng và đưa ra nhận xét chung về hoạt động kinh doanh năm 2026.
+
+---
+
+> [!IMPORTANT]
+> - Nộp ảnh chụp màn hình chứa bảng công thức tính MoM, YoY và biểu đồ đường có tích hợp Trendline.
+> - Tham khảo phần Bài chữa để so sánh các công thức tính và nhận định kinh doanh.
+
+[👉 Chuyển sang phần Trắc nghiệm Buổi 5](/lessons/session-5/quiz)  
+[👉 Xem bài chữa Lab Buổi 5 tại đây](/solutions/session-5/lab-solution)

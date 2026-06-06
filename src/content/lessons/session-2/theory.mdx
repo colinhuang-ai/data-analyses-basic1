@@ -1,0 +1,67 @@
+---
+title: "Lý thuyết: Google Sheets & Trực quan hóa dữ liệu cơ bản"
+session: 2
+type: "theory"
+order: 1
+---
+
+# Buổi 2: Làm Việc Với Google Sheets & Nguyên Tắc Trực Quan Hóa
+
+Google Sheets (hay Microsoft Excel) là một trong những công cụ phân tích dữ liệu phổ biến và tiếp cận dễ dàng nhất. Cho dù bạn chuyển sang các công cụ nâng cao như SQL, Python hay Tableau sau này, tư duy bảng (tabular thinking) học được từ Sheets vẫn luôn là nền tảng vững chắc nhất.
+
+---
+
+## 1. Google Sheets dưới góc nhìn Cơ sở dữ liệu (Database)
+
+Một bảng tính Google Sheets thường được cấu trúc thành các hàng (Rows) và cột (Columns):
+- **Cột (Columns)**: Đại diện cho các **Thuộc tính** (Features hoặc Fields) của dữ liệu. Ví dụ: `Họ tên`, `Tuổi`, `Doanh số`. Các ô trong cùng một cột phải có cùng kiểu dữ liệu (chữ, số, hoặc ngày tháng).
+- **Hàng (Rows)**: Đại diện cho từng **Bản ghi** (Records hoặc Observations). Ví dụ: Thông tin giao dịch của khách hàng Nguyễn Văn A.
+
+---
+
+## 2. Các hàm xử lý và tính toán dữ liệu cốt lõi
+
+Để tính toán và trích xuất thông tin hữu ích từ bảng dữ liệu khổng lồ, bạn cần làm quen với các nhóm hàm cơ bản:
+
+### a. Hàm tổng hợp (Aggregation Functions)
+- `=SUM(range)`: Tính tổng các giá trị trong vùng được chọn.
+- `=AVERAGE(range)`: Tính giá trị trung bình cộng.
+- `=COUNT(range)`: Đếm số ô chứa giá trị số.
+
+### b. Hàm điều kiện (Conditional Functions)
+- `=COUNTIF(range, criterion)`: Đếm số ô thỏa mãn một điều kiện nhất định.
+  - *Ví dụ*: `=COUNTIF(C2:C10, "Nam")` để đếm số học viên nam.
+- `=SUMIF(range, criterion, [sum_range])`: Tính tổng các giá trị thỏa mãn điều kiện.
+
+### c. Hàm tra cứu (Lookup Functions)
+- `=VLOOKUP(search_key, range, index, [is_sorted])`: Tìm kiếm một giá trị ở cột đầu tiên của bảng và trả về giá trị ở cột tương ứng.
+- `=XLOOKUP(search_key, lookup_range, result_range)`: Phiên bản nâng cấp mạnh mẽ hơn VLOOKUP, tìm kiếm linh hoạt mà không cần quan tâm vị trí cột và không cần sắp xếp dữ liệu.
+
+---
+
+## 3. Phân tích nhanh bằng Bảng xoay (Pivot Table)
+
+Pivot Table là công cụ cực kỳ mạnh mẽ giúp bạn tóm tắt, phân tích và lọc hàng ngàn hàng dữ liệu chỉ bằng thao tác kéo thả:
+- **Rows**: Chọn cột chứa nhóm muốn phân tích (ví dụ: `Khu vực`, `Sản phẩm`).
+- **Columns**: Nhóm dữ liệu theo chiều ngang (ví dụ: `Năm`, `Tháng`).
+- **Values**: Phép toán cần tính (ví dụ: `SUM` của doanh thu, `COUNTA` của mã đơn hàng).
+
+---
+
+## 4. Nguyên tắc trực quan hóa dữ liệu (Visualization)
+
+Trực quan hóa dữ liệu là nghệ thuật truyền tải số liệu thành hình ảnh dễ hiểu. Mỗi biểu đồ có một mục đích sử dụng khác nhau:
+
+| Loại biểu đồ | Mục đích chính | Ví dụ áp dụng |
+| :--- | :--- | :--- |
+| **Biểu đồ Cột / Thanh (Bar/Column Chart)** | So sánh giá trị giữa các nhóm khác nhau | So sánh doanh thu của 5 cửa hàng |
+| **Biểu đồ Đường (Line Chart)** | Theo dõi sự thay đổi theo thời gian (Trend) | Theo dõi lượng truy cập web qua các tháng |
+| **Biểu đồ Tròn (Pie Chart)** | Thể hiện tỷ lệ phần trăm cấu phần trong một tổng thể | Cơ cấu thị phần của các hãng điện thoại |
+| **Biểu đồ Phân tán (Scatter Plot)** | Thể hiện mối tương quan giữa 2 biến số | Mối tương quan giữa chi phí quảng cáo và doanh thu |
+
+---
+
+> [!WARNING]
+> Tránh sử dụng Biểu đồ Tròn khi có quá 5 danh mục thành phần, vì nó sẽ làm biểu đồ cực kỳ rối mắt và rất khó để so sánh các góc tròn bằng mắt thường. Thay vào đó, hãy dùng Biểu đồ Thanh ngang.
+
+[👉 Chuyển sang phần Thực hành Lab Buổi 2](/lessons/session-2/lab)

@@ -1,0 +1,56 @@
+---
+title: "Trắc nghiệm: Kiểm tra kiến thức Thu thập dữ liệu"
+session: 1
+type: "quiz"
+order: 3
+---
+
+import Quiz from '../../../components/Quiz.astro';
+
+# Bài tập trắc nghiệm: Thu thập dữ liệu
+
+Hãy trả lời các câu hỏi trắc nghiệm dưới đây để ôn tập lại kiến thức lý thuyết đã học ở Buổi 1. Bạn sẽ nhận được kết quả đúng/sai và lời giải thích chi tiết ngay sau khi nhấn nút "Kiểm Tra" cho mỗi câu hỏi.
+
+<Quiz questions={[
+  {
+    question: "Loại dữ liệu nào sau đây được phân loại là dữ liệu phi cấu trúc (Unstructured Data)?",
+    options: [
+      "Bảng dữ liệu khách hàng lưu trong hệ quản trị cơ sở dữ liệu SQL",
+      "Bảng thống kê doanh thu bán hàng tháng trong Google Sheets",
+      "Tập tin ghi âm cuộc gọi chăm sóc khách hàng của tổng đài viên",
+      "Kết quả điền phiếu khảo sát Google Forms tự động xuất ra bảng tính"
+    ],
+    correctIndex: 2,
+    explanation: "Tệp ghi âm cuộc gọi là dữ liệu âm thanh, không có cấu trúc hàng-cột rõ ràng để các thuật toán bảng tính thông thường phân tích được ngay lập tức, do đó nó là dữ liệu phi cấu trúc. Các tùy chọn khác đều có thể tổ chức dạng bảng biểu nên thuộc nhóm dữ liệu có cấu trúc."
+  },
+  {
+    question: "Định dạng dữ liệu phổ biến nhất mà các giao diện API hiện đại (đặc biệt là RESTful API) trả về cho ứng dụng khách là gì?",
+    options: [
+      "JSON hoặc XML",
+      "XLS hoặc XLSX (File Excel)",
+      "CSV hoặc TXT (File phân tách dấu phẩy)",
+      "PNG hoặc JPEG (File hình ảnh)"
+    ],
+    correctIndex: 0,
+    explanation: "JSON (JavaScript Object Notation) và XML là hai định dạng trao đổi dữ liệu nhẹ, dễ đọc bởi con người lẫn máy tính, và được các API hiện đại dùng phổ biến nhất để truyền tải dữ liệu giữa Server và Client."
+  },
+  {
+    question: "Hành động nào dưới đây vi phạm nguyên tắc đạo đức và tính hợp pháp trong thu thập dữ liệu?",
+    options: [
+      "Yêu cầu người dùng đồng ý trước khi cài đặt cookie theo dõi trên website.",
+      "Tự động thu thập số tài khoản ngân hàng và thẻ tín dụng của khách hàng trong một bài khảo sát sự hài lòng về giao diện web.",
+      "Sử dụng mã hóa AES để bảo mật thông tin hòm thư điện tử thu thập được.",
+      "Chỉ thu thập tên và địa chỉ email khi thiết kế form đăng ký nhận bản tin khuyến mãi."
+    ],
+    correctIndex: 1,
+    explanation: "Thu thập thông tin nhạy cảm như thẻ tín dụng khi không thực sự cần thiết (ở đây chỉ khảo sát giao diện) là vi phạm nguyên tắc thu thập tối thiểu (data minimization), đồng thời tạo ra rủi ro bảo mật nghiêm trọng cho người dùng."
+  }
+]} />
+
+---
+
+> [!TIP]
+> Bạn đã hoàn thành bài học đầu tiên! Hãy chuyển sang Buổi 2 để tìm hiểu cách đưa dữ liệu vào Google Sheets và thực hiện các phân tích trực quan hóa đầu tiên.
+
+[👉 Chuyển sang bài học Buổi 2: Google Sheets & Visualize](/lessons/session-2/theory)  
+[👉 Xem đáp án chi tiết và giải thích Quiz Buổi 1 tại đây](/solutions/session-1/quiz-solution)

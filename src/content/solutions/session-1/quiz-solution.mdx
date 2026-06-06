@@ -1,0 +1,36 @@
+---
+title: "Đáp án Quiz 1: Giải thích trắc nghiệm Thu thập dữ liệu"
+session: 1
+type: "quiz-solution"
+---
+
+# Giải thích đáp án trắc nghiệm Buổi 1: Thu thập dữ liệu
+
+Dưới đây là đáp án chi tiết kèm phân tích khoa học cho từng câu hỏi trắc nghiệm của Buổi 1.
+
+---
+
+## Câu 1: Xác định Dữ liệu phi cấu trúc
+- **Đáp án đúng**: *Tập tin ghi âm cuộc gọi chăm sóc khách hàng của tổng đài viên*.
+- **Phân tích chi tiết**:
+  - Dữ liệu âm thanh (Audio file) không có cấu trúc tổ chức dòng và cột định sẵn. Để phân tích nó, hệ thống phải thực hiện chuyển đổi giọng nói thành văn bản (Speech-to-Text) và sau đó phân tích ngữ nghĩa (Text mining/NLP). Do đó, nó là dữ liệu phi cấu trúc điển hình.
+  - Các tùy chọn khác như bảng SQL, Google Sheets và kết quả Form đều được lưu trữ trực tiếp dưới dạng cấu trúc bảng biểu có sẵn các trường dữ liệu rõ ràng (Structured Data).
+
+---
+
+## Câu 2: Định dạng dữ liệu của các API hiện đại
+- **Đáp án đúng**: *JSON hoặc XML*.
+- **Phân tích chi tiết**:
+  - **JSON (JavaScript Object Notation)** là chuẩn truyền tải dữ liệu phổ biến nhất hiện nay nhờ tính gọn nhẹ, tối ưu băng thông đường truyền và có thể map trực tiếp thành các đối tượng trong hầu hết các ngôn ngữ lập trình.
+  - **XML (eXtensible Markup Language)** là chuẩn cũ hơn sử dụng các thẻ tag tương tự HTML, tuy cồng kềnh hơn JSON nhưng vẫn được hỗ trợ rất nhiều ở các hệ thống tài chính/ngân hàng lâu đời.
+  - Các định dạng như Excel (XLSX) hay ảnh (PNG, JPEG) không phải là định dạng truyền dữ liệu thô phục vụ lập trình API phổ biến.
+
+---
+
+## Câu 3: Đạo đức trong thu thập dữ liệu
+- **Đáp án đúng**: *Tự động thu thập số tài khoản ngân hàng và thẻ tín dụng của khách hàng trong một bài khảo sát sự hài lòng về giao diện web*.
+- **Phân tích chi tiết**:
+  - Hành vi này vi phạm trực tiếp nguyên tắc **Thu thập tối thiểu (Data Minimization)** trong luật bảo vệ dữ liệu cá nhân. Bạn chỉ được phép thu thập những thông tin có liên quan trực tiếp và thực sự cần thiết cho mục đích đã nêu (ở đây chỉ là khảo sát cảm xúc về giao diện web).
+  - Thu thập trái phép thông tin tài chính nhạy cảm không chỉ vi phạm đạo đức mà còn vi phạm pháp luật hình sự về quyền riêng tư và an toàn thông tin tại nhiều quốc gia.
+
+[👉 Quay lại bài học chính Buổi 1](/lessons/session-1/theory)

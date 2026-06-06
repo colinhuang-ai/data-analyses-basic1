@@ -1,0 +1,70 @@
+---
+title: "Lý thuyết: Làm sạch dữ liệu (Data Cleaning)"
+session: 3
+type: "theory"
+order: 1
+---
+
+# Buổi 3: Làm Sạch Dữ Liệu (Data Cleaning) - Bước Quan Trọng Nhất
+
+Trong ngành khoa học dữ liệu, người ta thường truyền tai nhau một sự thật: **"Các nhà phân tích dành 80% thời gian để làm sạch dữ liệu, và chỉ 20% thời gian để phân tích thực tế"**. Tại sao việc dọn dẹp dữ liệu lại tốn thời gian đến thế? Hãy cùng tìm hiểu lý do và các phương pháp làm sạch phổ biến.
+
+---
+
+## 1. Tầm quan trọng của dọn dẹp dữ liệu
+
+Khi thu thập dữ liệu từ các nguồn thực tế (nhất là do người dùng tự nhập từ form), dữ liệu luôn ở trạng thái "bẩn" (dirty data).
+Nếu đưa thẳng dữ liệu bẩn này vào biểu đồ hay mô hình phân tích:
+- Hàm tính toán sẽ chạy lỗi hoặc trả về kết quả sai lệch.
+- Biểu đồ hiển thị các nhóm trùng lặp (ví dụ: nhóm "Hà Nội" và nhóm "ha noi " bị tách làm hai).
+- Đưa ra các quyết định kinh doanh sai lầm dựa trên số liệu bị bóp méo.
+
+---
+
+## 2. Các lỗi dữ liệu phổ biến cần xử lý
+
+Một chuyên viên dữ liệu cần nhạy bén nhận diện ra các lỗi sau:
+
+### a. Khoảng trắng thừa (Extra Spaces)
+Người dùng thường vô tình gõ thêm dấu cách ở đầu, ở cuối hoặc có nhiều dấu cách giữa các từ.
+- *Lỗi*: `" Nguyễn Văn A"` khác với `"Nguyễn Văn A"`.
+- *Khắc phục*: Dùng hàm `=TRIM(text)`.
+
+### b. Sự không đồng nhất về định dạng viết chữ (Inconsistent Casing)
+Chữ viết hoa viết thường lộn xộn.
+- *Lỗi*: `"hà nội"`, `"HÀ NỘI"`, `"Hà Nội"`.
+- *Khắc phục*: Dùng các hàm chuẩn hóa:
+  - `=PROPER(text)`: Viết hoa chữ cái đầu mỗi từ (ví dụ: `"Hà Nội"`).
+  - `=UPPER(text)`: Viết hoa toàn bộ chữ cái (ví dụ: `"HÀ NỘI"`).
+  - `=LOWER(text)`: Viết thường toàn bộ chữ cái.
+
+### c. Giá trị trống / Dữ liệu khuyết thiếu (Missing Values)
+Các ô dữ liệu bị bỏ trống không có thông tin.
+- *Khắc phục*:
+  - Loại bỏ bản ghi (nếu ô bị trống là thông tin bắt buộc và chiếm tỷ lệ nhỏ).
+  - Điền giá trị mặc định (ví dụ: điền `"N/A"`, `"Không xác định"`, hoặc điền số trung bình cộng đối với dữ liệu số).
+
+### d. Bản ghi trùng lặp (Duplicate Records)
+Một giao dịch hoặc thông tin khách hàng bị ghi nhận nhiều lần do lỗi hệ thống hoặc người dùng nhấn gửi nhiều lần.
+- *Khắc phục*: Sử dụng công cụ **Xóa hàng trùng lặp (Remove duplicates)** tích hợp sẵn hoặc dùng hàm `=UNIQUE(range)`.
+
+### e. Lỗi tính toán toán học (Errors like #DIV/0!, #N/A, #VALUE!)
+Khi một công thức bị lỗi do dữ liệu đầu vào sai định dạng.
+- *Khắc phục*: Bọc ngoài công thức bằng hàm `=IFERROR(công_thức, giá_trị_thay_thế)`.
+  - *Ví dụ*: `=IFERROR(A1/B1, 0)` sẽ hiển thị số 0 thay vì báo lỗi chia cho 0.
+
+---
+
+## 3. Quy trình làm sạch dữ liệu tiêu chuẩn
+
+```mermaid
+graph LR
+    A[Kiểm tra tổng quan định dạng] --> B[Xóa dữ liệu trùng lặp]
+    B --> C[Xử lý khoảng trắng & Viết hoa]
+    C --> D[Xử lý ô trống & Sửa lỗi công thức]
+    D --> E[Kiểm tra kiểu dữ liệu số/ngày tháng]
+```
+
+Chuẩn hóa dữ liệu là chìa khóa để đảm bảo sự nhất quán. Trong bài thực hành tiếp theo, chúng ta sẽ trực tiếp giải quyết một bảng dữ liệu thực tế bị lỗi bằng các công cụ tính toán này.
+
+[👉 Chuyển sang phần Thực hành Lab Buổi 3](/lessons/session-3/lab)

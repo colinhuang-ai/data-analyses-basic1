@@ -1,0 +1,62 @@
+---
+title: "Bài chữa Lab 1: Hướng dẫn chi tiết tạo Form & gọi API"
+session: 1
+type: "lab-solution"
+---
+
+# Bài chữa Lab Buổi 1: Thu thập dữ liệu khảo sát & Gọi API
+
+Dưới đây là lời giải thích chi tiết từng bước cho các tác vụ trong bài thực hành Buổi 1, giúp bạn nắm vững bản chất kỹ thuật phía sau.
+
+---
+
+## 1. Bài chữa Phần 1: Google Form & Google Sheet
+
+### Về mặt cấu trúc Trang tính phản hồi:
+- Khi Google Forms xuất dữ liệu ra Google Sheets, cột đầu tiên luôn là **"Dấu thời gian" (Timestamp)**. Đây là một dạng *Dữ liệu có cấu trúc* kiểu ngày giờ tự động do hệ thống tự sinh để định danh thời điểm điền form.
+- Dòng 1 chứa tiêu đề cột, tương ứng với các câu hỏi.
+- Dòng 2 trở đi chứa các câu trả lời của từng học viên (mỗi hàng đại diện cho một bản ghi học viên).
+
+> [!NOTE]
+> Không nên chỉnh sửa trực tiếp tiêu đề các cột trong Google Sheets nếu biểu mẫu Form vẫn đang mở để nhận câu trả lời. Nếu bạn đổi tên cột ở Sheets, khi có câu trả lời mới, Google Forms có thể sẽ tạo lại cột cũ gây xáo trộn bảng.
+
+---
+
+## 2. Bài chữa Phần 2: Giải thích mã JavaScript gọi API
+
+Đoạn code trong bài lab sử dụng cú pháp **Fetch API** của JavaScript hiện đại. Dưới đây là phân tích chi tiết từng khối mã:
+
+```javascript
+// Bước 1: Gửi một HTTP GET request tới endpoint API của JSONPlaceholder
+fetch('https://jsonplaceholder.typicode.com/users')
+```
+- **Giải thích**: Hàm `fetch()` gửi một yêu cầu (Request) qua internet. Nó hoạt động bất đồng bộ (Asynchronous) và trả về một `Promise` đại diện cho phản hồi trong tương lai.
+
+```javascript
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Mạng gặp sự cố khi gọi API');
+    }
+    return response.json(); // Chuyển đổi phản hồi thô sang định dạng JavaScript Object (hoặc JSON)
+  })
+```
+- **Giải thích**: `.then()` đầu tiên nhận phản hồi thô từ server. Chúng ta kiểm tra thuộc tính `response.ok` (trả về `true` nếu mã trạng thái HTTP là 200-299). Sau đó gọi `response.json()` để parse dữ liệu dạng text/JSON sang đối tượng JS để thao tác.
+
+```javascript
+  .then(users => {
+    console.log("=== ĐÃ THU THẬP ĐƯỢC " + users.length + " NGƯỜI DÙNG ===");
+    users.forEach(user => {
+      console.log(`- Tên: ${user.name} | Email: ${user.email} | Công ty: ${user.company.name}`);
+    });
+  })
+```
+- **Giải thích**: `.then()` thứ hai nhận mảng đối tượng `users` đã được giải mã. Chúng ta dùng hàm `.forEach()` để duyệt qua từng đối tượng người dùng, trích xuất các thuộc tính lồng nhau như `user.name`, `user.email`, và `user.company.name` (Tên công ty lồng trong thuộc tính công ty) để hiển thị ra console.
+
+```javascript
+  .catch(error => {
+    console.error('Lỗi khi thu thập dữ liệu:', error);
+  });
+```
+- **Giải thích**: Bất kỳ lỗi nào phát sinh (mất kết nối mạng, sai URL, API sập...) ở các bước trên đều sẽ được chuyển hướng về khối `.catch()` này để xử lý an toàn, tránh làm ứng dụng bị crash.
+
+[👉 Quay lại bài học chính Buổi 1](/lessons/session-1/theory)
